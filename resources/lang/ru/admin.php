@@ -9,7 +9,7 @@ return [
     'users' => 'Пользователи',
     'exit' => 'Выход',
     'allrr' => 'Все права защищены.',
-    'welcome1' => 'Добро пожаловать в N.O.C. content management system ',
+    'welcome1' => 'Welcome to Mafia Assistant ',
     'welcome2' => 'Используйте навигацию что бы управлять контетном вашего сайта.',
     'all_users' => 'Все пользователи',
     'manage_users' => 'Здесь вы можете управлять вашими пользователями.',

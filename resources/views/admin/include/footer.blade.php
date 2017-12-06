@@ -1,9 +1,9 @@
 <footer>
 	<div class="left">
-		<p>N.O.C. cms v1.0.0</p>
+		<p>Mafia Assistant v1.0.0</p>
 	</div>
 	<div class="center">
-		<p>&copy;2015 @lang('admin.allrr')</p>
+		<p>&copy;2018 @lang('admin.allrr')</p>
 	</div>		
 	<div class="right">
 		<a href="http://nocoffees.com" target="_blank" alt="N.O.COFFEE web studio" class="author stretchLeft">

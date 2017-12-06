@@ -20,9 +20,6 @@
             <div class="welcome-text">
                 <h1>@lang('admin.welcome1')</h1>
             </div>
-            <div class="welcome-text">
-                <p>You can easily manage content of your website.</p>
-            </div>                       
             <div class="reg-buttons">
                 <a href="{{url('/login')}}" class="hvr-hollow">Login</a>
                 <a href="{{url('/register')}}" class="hvr-hollow">Register</a>
