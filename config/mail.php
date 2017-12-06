@@ -54,7 +54,7 @@ return [
     |
     */
 
-    'from' => ['address' => 'staldver@interkomplekt.by', 'name' => 'www.стальдверь.бел'],
+    'from' => ['address' => 'noccms@nocoffees.com', 'name' => 'N.O.C. cms'],
 
     /*
     |--------------------------------------------------------------------------

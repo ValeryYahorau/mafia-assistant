@@ -106,33 +106,7 @@ label.checkbox {
     background-color: #edcd02;
     color: #1e1e1e!important;
 }
-.select-wrapper {
-  padding: 0;
-  margin: 0;
-  border: 1px solid #edcd02;
-  width: 120px;
-  overflow: hidden;
-  background-color: #1e1e1e;
-  background: #1e1e1e url("../img/arrowdown.gif") no-repeat 90% 50%;  
-}
-.select-wrapper select {
-  padding: 6px 8px;
-  width: 130%;
-  font-size: 18px;
-  color: #edcd02;
-  border: none;
-  box-shadow: none;
-  background-color: transparent;
-  background-image: none;
-  -webkit-appearance: none;
-     -moz-appearance: none;
-          appearance: none;
-  font-family: 'Alegreya Sans SC', sans-serif;
-  font-weight: 300;          
-}
-.select-wrapper select:focus {
-  outline: none;
-}
+
 
 
 .btn {
@@ -175,15 +149,6 @@ label.checkbox {
 }
 .btn-red:hover {
   background-color: #df2727;
-  color: #1e1e1e;
-}
-.btn-blue {
-  color: #27ccdf;  
-  border: 2px solid #27ccdf;
-  background: none;
-}
-.btn-blue:hover {
-  background-color: #27ccdf;
   color: #1e1e1e;
 }
 

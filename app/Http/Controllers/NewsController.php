@@ -35,11 +35,17 @@ class NewsController extends Controller
     {
         if($request->user()->is_admin()) {
             $news = new News();
-            $news->title = $request->get('title');
-            $news->short_desc = $request->get('short_desc');
-            $news->body = $request->get('body');
+            $news->title_en = $request->get('title_en');
+            $news->title_ru = $request->get('title_ru');      
+            $news->category_en = $request->get('category_en');
+            $news->category_ru = $request->get('category_ru');      
+            $news->short_desc_en = $request->get('short_desc_en');
+            $news->short_desc_ru = $request->get('short_desc_ru');      
+            $news->body_en = $request->get('body_en');
+            $news->body_ru = $request->get('body_ru'); 
+            
             $news->date = $request->get('date');        
-            $news->slug = str_slug($news->date .'-'. $news->title);
+            $news->slug = str_slug($news->date .'-'. $news->title_en);
             
             $duplicate = News::where('date',$request->get('date'))->first();
             if($duplicate)
@@ -80,11 +86,16 @@ class NewsController extends Controller
             $news_id = $request->input('news_id');
             $news = News::find($news_id);
             if($news) {
-                $news->title = $request->input('title');
-                $news->body = $request->input('body');
-                $news->short_desc = $request->get('short_desc');
+                $news->title_en = $request->get('title_en');
+                $news->title_ru = $request->get('title_ru');      
+                $news->category_en = $request->get('category_en');
+                $news->category_ru = $request->get('category_ru');      
+                $news->short_desc_en = $request->get('short_desc_en');
+                $news->short_desc_ru = $request->get('short_desc_ru');      
+                $news->body_en = $request->get('body_en');
+                $news->body_ru = $request->get('body_ru'); 
                 $news->date = $request->get('date'); 
-                $news->slug = str_slug($news->date .'-'. $news->title);
+                $news->slug = str_slug($news->date .'-'. $news->title_en);
 
                 $duplicate = News::where('date',$request->get('date'))->first();
                 if($duplicate)

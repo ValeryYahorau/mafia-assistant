@@ -39,7 +39,7 @@ return [
     |
     */
 
-    'url' => 'http://localhost',
+    'url' => 'http://www.user1212228.atservers.net',
 
     /*
     |--------------------------------------------------------------------------
@@ -65,12 +65,14 @@ return [
     |
     */
 
-    'locale' => 'en',
+    'locale' => 'ru',
     'locales' => array(
-        'en'
+        'en',
+        'ru',
     ),
     'languages'     => array(
-    'en' => 'en-US'
+    'en' => 'en_US',
+    'ru' => 'ru_RU',
 ),
     /*
     |--------------------------------------------------------------------------
@@ -155,14 +157,14 @@ return [
         Collective\Html\HtmlServiceProvider::class,
         Intervention\Image\ImageServiceProvider::class,
         Mcamara\LaravelLocalization\LaravelLocalizationServiceProvider::class,
-        App\Providers\ComposerServiceProvider::class,   
+
         /*
          * Application Service Providers...
          */
         App\Providers\AppServiceProvider::class,
         App\Providers\AuthServiceProvider::class,
         App\Providers\EventServiceProvider::class,
-        App\Providers\RouteServiceProvider::class,     
+        App\Providers\RouteServiceProvider::class,
 
     ],
 

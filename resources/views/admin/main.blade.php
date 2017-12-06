@@ -14,22 +14,22 @@
                 <h1>@lang('admin.welcome1')</h1>
             </div>                     
             <div class="welcome-text">
-                <p>Пожалуйста пододжите когда другой администратор подтвердит ваш аккаунт.</p>
+                <p>Please wait when another admin uesr approve your account to provide permissions to you.</p>
             </div>         
         @else
             <div class="welcome-text">
                 <h1>@lang('admin.welcome1')</h1>
             </div>
             <div class="welcome-text">
-                <p>Здесь вы можете легко управлять контентом на вашем сайте.</p>
+                <p>You can easily manage content of your website.</p>
             </div>                       
             <div class="reg-buttons">
                 <a href="{{url('/login')}}" class="hvr-hollow">Login</a>
                 <a href="{{url('/register')}}" class="hvr-hollow">Register</a>
             </div>
             <div class="welcome-text">
-                <p>Пожалуйста залогиньтесь, если у вас есть аккаунт.</p>
-                <p>Или зарегестрируйте новый аккаунт.</p>
+                <p>Please login if you have already had account.</p>
+                <p>Or register new account. After regestration admin user should approve your account to provide permissions to you.</p>
             </div>            
         @endif
     </div>

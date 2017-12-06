@@ -1,0 +1,246 @@
+.bord {
+  display: none;
+}
+.portfolio {
+  position: relative;
+  display: block;
+  margin: 0px 20px;
+  margin-bottom: 60px;
+  height: 100%;
+  -moz-transition: height 0.5s ease;
+  -o-transition: height 0.5s ease;
+  -webkit-transition: height 0.5s ease;
+  -ms-transition: height 0.5s ease;
+  transition: height 0.5s ease;
+  background-color: #fff;
+  border: 1px solid #bc0007; 
+  margin-top: 20px;  
+  min-height: 450px;
+}
+.portfolio:before, .portfolio:after {
+  content: " ";
+  display: table; 
+}
+.portfolio:after {
+  clear: both; 
+}
+section.phoreport-info {
+  margin-top: 100px;
+  text-align: center;
+}
+section.phoreport-info .title {
+  margin: 10px;
+}
+section.phoreport-info  span{
+  text-align: center;
+  font-family: 'Roboto', sans-serif; 
+  text-decoration: none;
+  color: #bc0007; 
+  font-size: 22px; 
+  padding: 10px;
+  font-weight: 300;
+  border-bottom: 1px solid #bc0007;  
+}
+
+.portfolio .portfolio-project {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: auto;
+    float: left;
+}
+.portfolio .portfolio-project .portfolio-vertical-center {
+      position: absolute;
+      display: block;
+      top: 50%;
+      margin-top: -33px;
+      width: 100%;
+      text-align: center; }
+.portfolio .portfolio-project .portfolio-project-image {
+      position: relative;
+      display: block;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+	  padding: 4px 4px 4px 4px;}
+.portfolio .portfolio-project .portfolio-project-image img {
+        position: relative;
+        display: block;
+        width: 100%;
+        height: auto; }
+.portfolio .portfolio-project .portfolio-project-details {
+      background: rgba(0, 0, 0, 0.75);
+      opacity: 0;
+      z-index: 1;
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      display: block;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+      -moz-transition: all 0.5s ease;
+      -o-transition: all 0.5s ease;
+      -webkit-transition: all 0.5s ease;
+      -ms-transition: all 0.5s ease;
+      transition: all 0.5s ease;
+}
+.portfolio .portfolio-project .portfolio-project-details .portfolio-project-title {
+        color: #888;
+        font-size: 16px;
+        position: relative;
+        display: block;
+        font-weight: 200;
+    font-family: 'Roboto', sans-serif;   
+    color: #bc0007;
+    font-weight: 700;             
+        }
+.portfolio .portfolio-project .portfolio-project-details .portfolio-project-actions {
+        position: absolute;
+        right: 15px;
+        bottom: 15px;
+        color: #bc0007; }
+.portfolio .portfolio-project .portfolio-project-details .portfolio-project-actions a {
+          color: #fff;
+          height: 40px;
+          width: 40px;
+          line-height: 40px;
+          display: block;
+          text-align: center;
+          background: #0e0e0e;
+          float: left;
+          margin: 5px;
+          font-weight: 300;
+          -moz-transition: all 0.4s ease;
+          -o-transition: all 0.4s ease;
+          -webkit-transition: all 0.4s ease;
+          -ms-transition: all 0.4s ease;
+          transition: all 0.4s ease; }
+.portfolio .portfolio-project .portfolio-project-details .portfolio-project-actions a:hover {
+            color: #00C3FF; }
+.portfolio .portfolio-project:hover .portfolio-project-details {
+      opacity: 1; }
+
+@media screen and (min-width: 1200px) {
+  .portfolio.portfolio-col-md-4 .portfolio-project {
+    width: 25%;
+  }
+}
+
+@media screen and (max-width: 1199px) {
+  .portfolio.portfolio-col-md-4 .portfolio-project {
+    width: 33.33333%;
+  } 
+}
+@media screen and (max-width: 768px) {
+  .portfolio.portfolio-col-sm-2 .portfolio-project {
+    width: 50%; 
+  }
+  .portfolio {
+    margin: 0px 14px;
+    margin-bottom: 54px;
+    margin-top: 40px;      
+  }   
+  section.portfolio.navigation {
+    display: none;
+  }
+  section.phoreport-info.navigation {
+    background-color: #d7c178!important;
+    height: 100%;
+    width: 100%;
+    margin-top: 0;
+  }  
+  section.phoreport-info.navigation .wrapper{
+    display: none;
+  }
+  section.navigation .bord {
+    display: block;
+  }    
+}
+@media only screen and (max-width: 667px) { 
+  .portfolio {
+    margin: 0px 10px;
+    margin-bottom: 50px;
+    margin-top: 30px;      
+  }  
+section.phoreport-info {
+  margin-top: 80px;
+  text-align: center;
+}
+section.phoreport-info .title {
+  margin: 10px;
+}
+section.phoreport-info  span{ 
+  font-size: 14px; 
+  padding: 10px;
+}  
+}
+@media only screen and (max-width: 414px) { 
+  .portfolio {
+    margin: 0px 5px;
+    margin-bottom: 45px;
+    margin-top: 40px;      
+  }  
+}
+@media screen and (max-width: 375px) {
+  .portfolio.portfolio-col-xs-1 .portfolio-project {
+    width: 100%; 
+  }   
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/Work\/Envato\/Demonica\/demonica\/scss\/style\.scss}line{font-family:\00003134}}
+.bg-inverse {
+  background: #fff; 
+  padding-bottom: 5px;
+}
+.portfolio-project a {outline: none}
+
+section * {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box; }
+
+section *:before,
+section *:after {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box; }
+
+
+@font-face {
+  font-family: 'Glyphicons Halflings';
+  src: url("../fonts/glyphiconshalflings-regular.html");
+  src: url("../fonts/glyphiconshalflings-regulard41d.html?#iefix") format("embedded-opentype"), url("../fonts/glyphiconshalflings-regular-2.html") format("woff"), url("../fonts/glyphiconshalflings-regular-3.html") format("truetype"), url("../fonts/glyphiconshalflings-regular-4.html#glyphicons_halflingsregular") format("svg"); }
+
+.glyphicon {
+  position: relative;
+  top: 1px;
+  display: inline-block;
+  font-family: 'Glyphicons Halflings';
+  font-style: normal;
+  font-weight: normal;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale; 
+}
+
+@media only screen and (max-width: 768px) { 
+  body.navigation section.portfolio {
+    display: none!important;
+  }
+  body.navigation section.phoreport-info {
+    background-color:#000; 
+    position: relative;
+    display: table;
+    height: 100%;
+    width: 100%;
+    table-layout: fixed;
+    overflow-x: hidden;
+    z-index: 401;
+    min-height: 450px;  
+    margin-top: 0px;  
+  }
+}
+
+
+

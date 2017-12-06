@@ -24,7 +24,7 @@
       @foreach( $news as $index => $single_news )
         <div class="row entity {{ $index% 2 == 0 ? ' even' : 'odd' }}">
           <div class="cell id">{{ $single_news->id }} </div>
-          <div class="cell">{{ $single_news->title }}</div>
+          <div class="cell">{{ $single_news->title_ru }}<br/>{{ $single_news->title_en }}</div>
           <div class="cell date">{{ $single_news->date }}</div>
           <div class="cell image">
             @if ( $single_news->img_path )

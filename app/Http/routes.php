@@ -1,68 +1,55 @@
 <?php
 
-Route::group(['prefix' => LaravelLocalization::setLocale(),'middleware' => ['web','localize','localeSessionRedirect','localizationRedirect']], function() {
-	Route::get('/','MainController@index');
-	Route::get('/intro','MainController@intro');
-	Route::get('/contacts','MainController@contacts');
-	Route::get('/items/{title}','MainController@category');
-	Route::get('/item/{slug}','MainController@item');
-	Route::get('/news','MainController@news');
-	Route::get('/news/{slug}','MainController@singleNews');
 
-});
-
-Route::group(['prefix' => LaravelLocalization::setLocale(),'middleware' => ['web','localize','localeSessionRedirect','localizationRedirect']], function() {
+Route::group(['prefix' => LaravelLocalization::setLocale(),'middleware' => ['localize','web','localeSessionRedirect','localizationRedirect']], function() {
     Route::auth();
     Route::get('/admin', 'AdminController@index');   
 });
 
-Route::group(['prefix' => LaravelLocalization::setLocale(),'middleware' => ['web','localize','localeSessionRedirect','localizationRedirect']], function() {
+Route::group(['prefix' => LaravelLocalization::setLocale(),'middleware' => ['localize','web','localeSessionRedirect','localizationRedirect']], function() {
 	Route::get('/admin/users','UserController@all');
 	Route::get('/admin/delete-user/{id}','UserController@delete');
 	Route::get('/admin/approve-user/{id}','UserController@approve');
 
-	Route::get('/admin/create-seo','SEOController@create');
-	Route::get('/admin/create-seo-default','SEOController@create');
-	Route::post('/admin/save-seo','SEOController@save');
-	Route::get('/admin/edit-seo/{id}','SEOController@edit');
-	Route::post('/admin/update-seo','SEOController@update');
-	Route::get('/admin/delete-seo/{id}','SEOController@delete');
-	Route::get('/admin/seo','SEOController@all');
+	Route::get('/admin/create-event','EventController@create');
+	Route::post('/admin/save-event','EventController@save');
+	Route::get('/admin/edit-event/{id}','EventController@edit');
+	Route::post('/admin/update-event','EventController@update');
+	Route::get('/admin/delete-event/{id}','EventController@delete');
+	Route::get('/admin/events','EventController@all');
 
-	Route::get('/admin/create-category','CategoryController@create');
-	Route::post('/admin/save-category','CategoryController@save');
-	Route::get('/admin/upload-category/{id}','CategoryController@uploadPhotos');
-	Route::get('/admin/edit-category/{id}','CategoryController@edit');
-	Route::post('/admin/update-category','CategoryController@update');
-	Route::get('/admin/delete-category/{id}','CategoryController@delete');
-	Route::get('/admin/category','CategoryController@all');	
-
-	Route::get('/admin/create-item','ItemController@create');
-	Route::post('/admin/save-item','ItemController@save');
-	Route::get('/admin/upload-photos/{id}','ItemController@uploadPhotos');
-	Route::get('/admin/edit-item/{id}','ItemController@edit');
-	Route::post('/admin/update-item','ItemController@update');
-	Route::get('/admin/delete-item/{id}','ItemController@delete');
-	Route::get('/admin/item','ItemController@all');	
+	Route::get('/admin/create-photoreport','PhotoreportController@create');
+	Route::post('/admin/save-photoreport','PhotoreportController@save');
+	Route::get('/admin/upload-photos/{id}','PhotoreportController@uploadPhotos');
+	Route::get('/admin/edit-photoreport/{id}','PhotoreportController@edit');
+	Route::post('/admin/update-photoreport','PhotoreportController@update');
+	Route::get('/admin/delete-photoreport/{id}','PhotoreportController@delete');
+	Route::get('/admin/photoreports','PhotoreportController@all');	
 
 	Route::get('/admin/create-news','NewsController@create');
 	Route::post('/admin/save-news','NewsController@save');
 	Route::get('/admin/edit-news/{id}','NewsController@edit');
 	Route::post('/admin/update-news','NewsController@update');
 	Route::get('/admin/delete-news/{id}','NewsController@delete');
-	Route::get('/admin/news','NewsController@all');	
-	
-	Route::get('/admin/create-property','PropertyController@create');
-	Route::post('/admin/save-property','PropertyController@save');
-	Route::get('/admin/edit-property/{id}','PropertyController@edit');
-	Route::post('/admin/update-property','PropertyController@update');
-	Route::get('/admin/delete-property/{id}','PropertyController@delete');
-	Route::get('/admin/properties','PropertyController@all');
+	Route::get('/admin/news','NewsController@all');			
+});
+
+Route::group(['prefix' => LaravelLocalization::setLocale(),'middleware' => ['localize','web','localeSessionRedirect','localizationRedirect']], function() {
+	Route::get('/','MainController@index');
+	Route::get('/home','MainController@index');
+	Route::get('/about','MainController@about');
+	Route::get('/clever','MainController@clever');	
+	Route::get('/contacts','MainController@contacts');
+	Route::get('/news','MainController@news');
+	Route::get('/news/{slug}','MainController@singleNews');
+	Route::get('/events','MainController@events');
+	Route::get('/event/{slug}','MainController@event');
+	Route::get('/photoreports','MainController@photoreports');
+	Route::get('/photoreport/{slug}','MainController@singlePhotoreport');
 });
 
 Route::group(['middleware' => 'web'], function () {
-
-	Route::post('upload-photos', ['as' => 'upload-photos', 'uses' =>'ItemController@uploadPhoto']);
-	Route::post('delete-photo', ['as' => 'delete-photo', 'uses' =>'ItemController@deletePhoto']);
+	Route::post('upload-photos', ['as' => 'upload-photos', 'uses' =>'PhotoreportController@uploadPhoto']);
+	Route::post('delete-photo', ['as' => 'delete-photo', 'uses' =>'PhotoreportController@deletePhoto']);
 	
 });

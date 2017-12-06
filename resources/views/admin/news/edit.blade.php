@@ -20,24 +20,57 @@
             <input type="hidden" name="news_id" value="{{ $news->id }}"> 
             <input type="hidden" name="_token" value="{{ csrf_token() }}">
             <div class="form-group">
-              <label>Title</label>
-              <input value="{{$news->title}}" placeholder="" type="text" name = "title" class="form-control" />
-              @if ($errors->has('title'))
-                  <span class="help-block">{{ $errors->first('title') }}</span>
+              <label>Title EN</label>
+              <input value="{{$news->title_en}}" placeholder="" type="text" name = "title_en" class="form-control" />
+              @if ($errors->has('title_en'))
+                  <span class="help-block">{{ $errors->first('title_en') }}</span>
+              @endif
+            </div>
+            <div class="form-group">
+              <label>Title RU</label>
+              <input value="{{$news->title_ru}}" placeholder="" type="text" name = "title_ru" class="form-control" />
+              @if ($errors->has('title_ru'))
+                  <span class="help-block">{{ $errors->first('title_ru') }}</span>
               @endif
             </div>
 
             <div class="form-group">
-              <label>Short Desc</label>
-              <input value="{{$news->short_desc}}" placeholder="" type="text" name = "short_desc" class="form-control" />
-              @if ($errors->has('short_desc'))
-                  <span class="help-block">{{ $errors->first('short_desc') }}</span>
+              <label>Short Desc EN</label>
+              <input value="{{$news->short_desc_en}}" placeholder="" type="text" name = "short_desc_en" class="form-control" />
+              @if ($errors->has('short_desc_en'))
+                  <span class="help-block">{{ $errors->first('short_desc_en') }}</span>
               @endif
             </div>
+            <div class="form-group">
+              <label>Short Desc RU</label>
+              <input value="{{$news->short_desc_ru}}" placeholder="" type="text" name = "short_desc_ru" class="form-control" />
+              @if ($errors->has('short_desc_ru'))
+                  <span class="help-block">{{ $errors->first('short_desc_ru') }}</span>
+              @endif
+            </div> 
+
+            <div class="form-group">
+              <label>Category EN</label>
+              <input value="{{$news->category_en}}" placeholder="" type="text" name = "category_en" class="form-control" />
+              @if ($errors->has('category_en'))
+                  <span class="help-block">{{ $errors->first('category_en') }}</span>
+              @endif
+            </div>
+            <div class="form-group">
+              <label>Category RU</label>
+              <input value="{{$news->category_ru}}" placeholder="" type="text" name = "category_ru" class="form-control" />
+              @if ($errors->has('category_ru'))
+                  <span class="help-block">{{ $errors->first('category_ru') }}</span>
+              @endif
+            </div> 
             
             <div class="form-group">
-              <label>Body</label>
-              <textarea name='body'class="form-control">{!! $news->body !!}</textarea>
+              <label>Body EN</label>
+              <textarea name='body_en'class="form-control">{!! $news->body_en !!}</textarea>
+            </div>
+            <div class="form-group">
+              <label>Body RU</label>
+              <textarea name='body_ru'class="form-control">{!! $news->body_ru !!}</textarea>
             </div>
 
             <div class="form-group">

@@ -8,6 +8,7 @@ class News extends Model {
 
     public function delete()
     {
+    	File::delete(base_path().$this->img_path);
         return parent::delete();
     }  
 }

@@ -8,7 +8,7 @@ class Photo extends Model {
 
 	public function photoreport()
 	{
-		return $this->belongsTo('App\Item','item_id');
+		return $this->belongsTo('App\Photoreport','photoreport_id');
 	}  
 
     public function delete()

@@ -29,11 +29,16 @@ $(document).ready(function() {
 
 function create_map(mapContainer) {
 		var mapOptions = {
-			center: new google.maps.LatLng(53.924327, 27.633202),
-			zoom: 15,
-			navigationControl: true,
-			mapTypeControl: true,
-			scrollwheel: true,
+			center: new google.maps.LatLng(53.914875, 27.561041),
+			zoom: 16,
+			zoomControl: true,
+                zoomControlOptions: {
+                    position: google.maps.ControlPosition.RIGHT_CENTER
+                },
+			navigationControl: false,
+			mapTypeControl: false,
+			scrollwheel: false,
+			panControl: false,
 			disableDefaultUI: false,
 			disableDoubleClickZoom: true
 		};
@@ -43,7 +48,7 @@ function create_map(mapContainer) {
 		var mapStyle = [
 			{
 				"stylers": [
-					{ "hue": "#ff000c" },
+					{ "hue": "#bc0007" },
 					{ "saturation": -80 },
 					{ "gamma": 0.40 },
 					{ "lightness": 25 }
@@ -55,8 +60,8 @@ function create_map(mapContainer) {
 	}
 	
 function create_marker() {		
-		var pinImage = new google.maps.MarkerImage('img/marker.png'),
-		myPin = new google.maps.LatLng(53.924327, 27.633202);
+		var pinImage = new google.maps.MarkerImage('../web/img/marker.png'),
+		myPin = new google.maps.LatLng(53.914875, 27.561041);
 		
 		marker = new google.maps.Marker({
 			position: myPin,
