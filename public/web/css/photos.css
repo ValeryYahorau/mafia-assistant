@@ -1,0 +1,182 @@
+html, body,header {
+  background-color: #000;
+}
+body {overflow-y: auto;}
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,300,600);
+.portfolio {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100%;
+  -moz-transition: height 0.5s ease;
+  -o-transition: height 0.5s ease;
+  -webkit-transition: height 0.5s ease;
+  -ms-transition: height 0.5s ease;
+  transition: height 0.5s ease;
+  background-color: #000;
+  display: inline-block;
+}
+
+
+.photos-wr {
+ padding: 10px;
+    margin-top: -10px; 
+}
+
+.portfolio:before, .portfolio:after {
+    content: " ";
+    display: table; }
+.portfolio:after {
+    clear: both; }
+
+section.phoreport-info {
+  padding: 60px 0px 0px 0px;
+    text-align: center;
+}
+section.phoreport-info  .title {
+  color: #fff;
+  padding: 10px 0px;
+  font-weight: 300;
+  font-size: 36px;
+}
+.portfolio .portfolio-project {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: auto;
+    float: left;
+}
+.portfolio .portfolio-project .portfolio-vertical-center {
+      position: absolute;
+      display: block;
+      top: 50%;
+      margin-top: -33px;
+      width: 100%;
+      text-align: center; }
+.portfolio .portfolio-project .portfolio-project-image {
+      position: relative;
+      display: block;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+	  padding: 4px 4px 4px 4px;}
+.portfolio .portfolio-project .portfolio-project-image img {
+        position: relative;
+        display: block;
+        width: 100%;
+        height: auto; }
+.portfolio .portfolio-project .portfolio-project-details {
+      background: rgba(0, 0, 0, 0.75);
+      opacity: 0;
+      z-index: 1;
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      display: block;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+      -moz-transition: all 0.5s ease;
+      -o-transition: all 0.5s ease;
+      -webkit-transition: all 0.5s ease;
+      -ms-transition: all 0.5s ease;
+      transition: all 0.5s ease;
+}
+.portfolio .portfolio-project .portfolio-project-details .portfolio-project-title {
+        color: #c66a6a;
+        font-size: 16px;
+        position: relative;
+        display: block;
+        font-weight: 200;
+        font-family: 'Droid Sans', Verdana, Helvetica, sans-serif; 
+        }
+.portfolio .portfolio-project .portfolio-project-details .portfolio-project-actions {
+        position: absolute;
+        right: 15px;
+        bottom: 15px;
+        color: #c66a6a; }
+.portfolio .portfolio-project .portfolio-project-details .portfolio-project-actions a {
+          color: #fff;
+          height: 40px;
+          width: 40px;
+          line-height: 40px;
+          display: block;
+          text-align: center;
+          background: #0e0e0e;
+          float: left;
+          margin: 5px;
+          font-weight: 300;
+          -moz-transition: all 0.4s ease;
+          -o-transition: all 0.4s ease;
+          -webkit-transition: all 0.4s ease;
+          -ms-transition: all 0.4s ease;
+          transition: all 0.4s ease; }
+.portfolio .portfolio-project .portfolio-project-details .portfolio-project-actions a:hover {
+            color: #00C3FF; }
+.portfolio .portfolio-project:hover .portfolio-project-details {
+      opacity: 1; }
+
+@media screen and (min-width: 1200px) {
+  .portfolio.portfolio-col-md-4 .portfolio-project {
+    width: 25%;
+  }
+}
+
+@media screen and (max-width: 1199px) {
+  .portfolio.portfolio-col-md-4 .portfolio-project {
+    width: 33.33333%;
+  } 
+}
+@media screen and (max-width: 768px) {
+  .portfolio {
+    width: 100%;  
+  }
+  .portfolio.portfolio-col-sm-2 .portfolio-project {
+    width: 50%; 
+  } 
+}
+@media screen and (max-width: 375px) {
+  .portfolio.portfolio-col-xs-1 .portfolio-project {
+    width: 100%; 
+  }   
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/Work\/Envato\/Demonica\/demonica\/scss\/style\.scss}line{font-family:\00003134}}
+.bg-inverse {
+  background: #fff; 
+}
+.portfolio-project a {outline: none}
+
+section * {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box; }
+
+section *:before,
+section *:after {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box; }
+
+
+@font-face {
+  font-family: 'Glyphicons Halflings';
+  src: url("../fonts/glyphiconshalflings-regular.html");
+  src: url("../fonts/glyphiconshalflings-regulard41d.html?#iefix") format("embedded-opentype"), url("../fonts/glyphiconshalflings-regular-2.html") format("woff"), url("../fonts/glyphiconshalflings-regular-3.html") format("truetype"), url("../fonts/glyphiconshalflings-regular-4.html#glyphicons_halflingsregular") format("svg"); }
+
+.glyphicon {
+  position: relative;
+  top: 1px;
+  display: inline-block;
+  font-family: 'Glyphicons Halflings';
+  font-style: normal;
+  font-weight: normal;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale; 
+}
+
+
+
+
+

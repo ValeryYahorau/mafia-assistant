@@ -1,0 +1,141 @@
+header {
+  height:80px;
+  background-color:#1e1e1e;
+  position:absolute;
+  top:0;
+  width:100%;
+  z-index:405;  
+}
+header .logo {
+  margin: 0px 0px;
+  width: 80px;
+  height: 80px;
+  cursor: pointer;
+  background-color: #edcd02;
+}
+header .logo img{
+  width: 70%;
+  margin: 0 auto;
+  padding-top: 15%;
+  display: block;
+}
+header .title {
+  position: absolute;
+  top: 0px;
+  left: 100px;  
+}
+header .title p{
+  font-family: 'Alegreya Sans SC', sans-serif;
+  font-size: 30px;
+  color: #edcd02;
+  font-weight: 100; 
+  margin-top: 20px; 
+}
+header .locales {
+  position: absolute;
+  top: 20px;
+  right: 20px; 
+  padding: 5px;
+}
+header .locales a{
+  display: inline-block;
+  text-decoration: none;
+  color: #edcd02;
+  font-family: 'Alegreya Sans SC', sans-serif;
+  font-size: 16px;
+  font-weight: 300;
+  padding: 5px 5px 5px 5px;
+}
+.page-sidebar {
+  width: 265px;
+  display: table-cell;
+  position: relative;
+  margin-right: -100%;
+  background-color: #222222;
+  height: 100%;   
+  z-index: 404;
+}
+.page-sidebar ul{
+  display: block;
+  list-style: outside none none;
+  overflow: auto;
+  margin: 0px;
+  padding: 0px;
+}
+.page-sidebar ul li{
+  border-bottom: 1px solid #292929;
+  border-top: 1px solid #292929;  
+}
+.page-sidebar ul li a{
+  color: #edcd02;
+  font-family: 'Alegreya Sans SC', sans-serif;
+  font-size: 15px;
+  font-weight: 300;  
+  text-decoration: none;
+  padding: 15px 10px;
+  display: block;
+  letter-spacing: 0px;
+}
+.page-sidebar ul li a i{
+  margin-right: 10px;
+}
+.page-sidebar ul li a:hover {
+  color: #222222;
+  background-color: #edcd02;
+}
+footer {
+  position: relative;
+  height: 40px;
+  margin-top: -40px;
+  background-color: #1e1e1e;
+  z-index:405;  
+}
+footer .left, footer .center, footer .right {
+  float: left;
+}
+footer .left {
+  width: 35%;
+  text-align: left; 
+  padding-top: 10px;
+}
+footer .left p, footer .center p  {
+  color: #edcd02;
+  font-family: 'Alegreya Sans SC', sans-serif;   
+  font-size: 14px;
+  font-weight: 400;  
+  margin: 0px 0px;
+  letter-spacing: 2px;   
+}
+footer .left p {
+  margin-left: 20px;
+}
+footer .center {
+  width: 30%;
+  text-align: center;
+  padding-top: 10px;  
+}
+footer .right {
+  width: 35%;
+  text-align: right;
+}
+footer .right a.author {
+  margin: 5px 20px 0px 2px;
+  text-decoration: none;
+  display: inline-block;
+  text-decoration: none;
+}
+footer .right a.author p{
+  text-decoration: none;
+  color: #edcd02;
+  font-family: 'Alegreya Sans SC', sans-serif;   
+  font-size: 14px;
+  font-weight: 400;  
+  float: left;
+  margin: 6px 4px 0px 0px;
+  letter-spacing: 2px;   
+}
+footer .right .author img {
+  margin-top: 6px;
+  width: 18px;
+  height: 18px;
+}

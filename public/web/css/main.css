@@ -1,0 +1,673 @@
+html, body {
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  height: 100%;
+  min-height: 100%;  
+  overflow-x: hidden;
+  position: relative; 
+-webkit-tap-highlight-color: rgba(0,0,0,0); /* disable webkit tap highlight */  
+}
+body {
+    overflow-x: hidden; 
+}
+#container{
+    position: relative;
+}
+
+/******************************************************************************************************************/
+/*HOME*/
+/******************************************************************************************************************/
+section.home {
+    background-color:#fff; 
+    position: relative;
+    display: table;
+    height: 100%;
+    width: 100%;
+    table-layout: fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    -ms-background-size: cover;
+    background-size: cover;
+    overflow-x: hidden;
+    z-index: 401;
+    min-height: 450px;
+}
+/******************************************************************************************************************/
+/*ABOUT*/
+/******************************************************************************************************************/
+.about{
+    position: relative;
+    display: table;
+    min-height: 420px;
+    table-layout: fixed;
+    background-color:#c66a6a; 
+    height: 100%;
+    width: 100%;
+    table-layout: fixed;
+    overflow-x: hidden;
+    z-index: 301;
+}
+.about .wrapper{
+    width: 90%;
+    margin: 0 auto;
+    background-color: #fff;
+    color: #c66a6a;
+    margin-bottom: 70px;
+    margin-top: 80px;
+    padding: 40px;
+    max-width: 1200px;
+    display: table;
+}
+.about .wrapper2{
+    display: table;
+    width: 100%;
+    margin-bottom: 30px;
+}
+
+.about .wrapper .wrapper2 .l{
+    vertical-align: middle;
+    background: url(../img/intro1.jpg);
+    display: table-cell;
+    width: 40%;
+    height: 300px;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    -ms-background-size: cover;
+    background-size: cover;
+    background-position: center center;
+}
+.about .wrapper .wrapper2 .c {
+    vertical-align: middle;
+    display: table-cell;
+    width: 28%;
+    height: 150px;    
+}
+.about .wrapper .wrapper2 .c .top{
+    vertical-align: middle;
+    background: url(../img/intro2.jpg);
+    height: 150px;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    -ms-background-size: cover;
+    background-size: cover;
+    background-position: center center;
+    margin: 0px 5px 5px 5px;
+}
+.about .wrapper .wrapper2 .c .bottom{
+    vertical-align: middle;
+    background: url(../img/intro3.jpg);
+    height: 150px;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    -ms-background-size: cover;
+    background-size: cover;
+    background-position: center center;
+    margin: 0px 5px;
+}
+.about .wrapper .wrapper2 .r{
+    vertical-align: middle;
+    background: url(../img/intro4.jpg);
+    display: table-cell;
+    width: 32%;
+    height: 300px;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    -ms-background-size: cover;
+    background-size: cover;
+    background-position: center center;
+}
+
+
+
+
+
+.about .wrapper h1{ 
+    font-family: 'Droid Sans', Verdana, Helvetica, sans-serif;
+    margin-top: 0px;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #c66a6a;
+    font-size: 26px;
+    letter-spacing: 4px;
+}
+.about .wrapper .line{
+    display: table;
+}
+.about .wrapper .line .l,
+.about .wrapper .line .r{
+    display: table-cell;
+    vertical-align: middle;
+    width: 50%;
+}
+.about .wrapper .line img {
+    position: relative;
+    display: block;
+    width: 90%; 
+    margin: 0 auto;
+}
+.about .wrapper p{
+    font-family: 'Droid Sans', Verdana, Helvetica, sans-serif;
+    font-size: 20px;    
+    line-height: 32px;
+} 
+.about .wrapper p.center{
+    text-align: center;
+}
+/******************************************************************************************************************/
+/*CONTACTS*/
+/******************************************************************************************************************/
+.tours{
+    position: relative;
+    display: table;
+    min-height: 420px;
+    table-layout: fixed;
+    background-color:#c66a6a; 
+    height: 100%;
+    width: 100%;
+    table-layout: fixed;
+    overflow-x: hidden;
+    z-index: 301;
+    padding-top: 80px;
+    padding-bottom: 60px;    
+}
+.intro {
+    display: table;
+    width: 90%;
+    max-width: 1200px;
+    background: #fff;  
+    margin: 0 auto;
+    margin-bottom: 20px;    
+}
+.intro h1{ 
+    font-family: 'Droid Sans', Verdana, Helvetica, sans-serif;
+    margin-top: 0px;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #c66a6a;
+    font-size: 26px;
+    letter-spacing: 4px;
+    color: #c66a6a;
+    padding: 10px;
+    margin: 10px;
+}
+.intro p{
+    font-family: 'Droid Sans', Verdana, Helvetica, sans-serif;
+    font-size: 16px;    
+    line-height: 20px;
+    color: #c66a6a;
+    padding: 10px;
+    margin: 10px;        
+} 
+.tours a {
+    text-decoration: none;
+}
+.tours .item{
+    display: table;
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    margin-bottom: 20px;
+}
+.tours .item .image{
+    display: table-cell;
+    width: 40%;
+    height: 300px;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    -ms-background-size: cover;
+    background-size: cover;
+    background-position: center center;
+    -webkit-filter: sepia(0.5);
+    filter: sepia(0.5);
+}
+.tours .item .info {
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+    background-color: #fff;
+    padding: 20px;
+    border-left: 1px solid #c66a6a; 
+    border-right: 1px solid #c66a6a;        
+}
+.tours .item .info .wr1{
+    height: 240px;
+    display: table;
+    width: 100%;
+    background-color: #fff;
+    border: 2px solid #c66a6a;
+}
+.tours .item .info .wr1 .wr2{
+    display: table-cell;
+    vertical-align: middle;
+    padding: 0px 10px;
+}
+.tours .item .info .wr1 .wr2 h1 {
+    font-family: 'Droid Sans', Verdana, Helvetica, sans-serif;
+    font-size: 46px;    
+    margin: 0px 0px;    
+    color: #bb2b2b;
+    margin-bottom: 10px;
+}
+.tours .item .info .wr1 .wr2 p {
+    color: #c66a6a;
+    font-family: 'Droid Sans', Verdana, Helvetica, sans-serif;
+    font-size: 14px;
+    line-height: 23px;
+    margin: 0px 0px;    
+}
+/******************************************************************************************************************/
+/*CONTACTS*/
+/******************************************************************************************************************/
+.contacts{
+    position: relative;
+    display: table;
+    min-height: 420px;
+    table-layout: fixed;
+    background-color:#c66a6a; 
+    height: 100%;
+    width: 100%;
+    table-layout: fixed;
+    overflow-x: hidden;
+    z-index: 301;
+}
+.map {
+    position: absolute;
+    top: 60px;
+    bottom: 40px;
+    right: 0px;
+    left: 380px;
+    z-index: 401;
+}
+.contacts-block {
+    position: relative;
+    display: table-cell;
+    vertical-align: middle;
+    width: 100%;
+    text-align: right;
+    z-index: 400;
+}
+.contacts-block .mobile {
+    display: none;
+}
+.contacts-block .wrapper {
+    margin-left: 0px;
+    width: 380px;
+    text-align: center;
+}
+.contacts-block .wrapper h1 {
+    font-family: 'Droid Sans', Verdana, Helvetica, sans-serif; 
+    text-decoration: none;
+    color: #fff;
+    font-weight: 700;   
+    font-size: 20px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin: 15px 20px 15px 20px;
+}
+.contacts-block .wrapper h1.top-line {
+    padding-top: 15px;
+    border-top: 1px solid #fff;
+}
+.contacts-block .wrapper h1 i {
+    margin-right: 5px;
+}
+.contacts-block .wrapper a {
+    font-family: 'Droid Sans', Verdana, Helvetica, sans-serif;
+    text-decoration: none;
+    color: #fff;
+    font-weight: 700;   
+    font-size: 16px;    
+}
+.contacts-block .wrapper p {
+    font-family: 'Droid Sans', Verdana, Helvetica, sans-serif;  
+    text-decoration: none;
+    color: #fff;
+    font-weight: 700;   
+    font-size: 16px;
+    letter-spacing: 1px;
+    margin: 2px 0px;
+
+}
+.contacts-block .wrapper p a{
+    font-family: 'Droid Sans', Verdana, Helvetica, sans-serif;
+    text-decoration: none;
+    color: #fff;
+    font-weight: 700;   
+    font-size: 16px;
+}
+/******************************************************************************************************************/
+/*NEWS*/
+/******************************************************************************************************************/
+.news{
+    position: relative;
+    display: table;
+    min-height: 420px;
+    table-layout: fixed;
+    background-color:#c66a6a; 
+    height: 100%;
+    width: 100%;
+    table-layout: fixed;
+    overflow-x: hidden;
+    z-index: 301;
+}
+.news-block {
+    z-index: 301;
+    position: relative;
+    width: 100%;
+    margin: 0 auto;
+    margin-top: 60px;
+    margin-bottom: 50px;
+    display: inherit;
+    padding: 20px 0px;
+}
+.news-block .wrapper {
+    width: 98%;
+    margin: 0 auto;
+    width: 90%;
+    margin: 0 auto;
+    background-color: #fff;
+    color: #c66a6a;
+    padding: 20px;
+    max-width: 1200px;    
+}
+.news-block .wrapper h1.title{
+    font-family: 'Droid Sans', Verdana, Helvetica, sans-serif;
+    margin-top: 0px;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #c66a6a;
+    font-size: 26px;
+    letter-spacing: 4px;
+    color: #c66a6a;
+    padding: 10px;
+    margin: 10px;
+}
+
+.news-block a {
+    text-decoration: none;
+    display: block;
+    box-sizing: content-box;
+}
+.news-block .item {
+    position: relative;
+    float: left;
+    margin: 0 auto;
+    margin-top: 10px;
+    transition: all .5s ease-in-out;
+    padding: 5px
+}
+.news-block .item .date {
+    background-color: #d41313;
+    color: #fff;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    padding: 10px;
+    text-align: center;
+    z-index: 405;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-family: 'Droid Sans', Verdana, Helvetica, sans-serif;
+    font-weight: 300;
+    transition: all .5s ease-in-out
+}
+.news-block .item .date span {
+    display: block;
+    width: auto;
+    height: auto;
+    font-size: 12px;
+    line-height: 12px;
+    margin: 0
+}
+.news-block .item .top {
+    width: 100%;
+    border: 2px solid #a31414;
+    transition: all .5s ease-in-out;
+    overflow: hidden;
+    box-sizing: border-box;
+}
+.news-block .item .top img {
+    width: 100%;
+    transition: all .5s ease-in-out;
+        margin-bottom: 16px;
+}
+.news-block .item .bottom {
+    margin-top: -28px;
+    transition: all .5s ease-in-out;
+    border-left: 2px solid #a31414;
+    border-right: 2px solid #a31414;
+    border-bottom: 2px solid #a31414;
+}
+.news-block .item .bottom .category {
+    position: relative;
+    background: #a31414;
+    padding: 10px 15px;
+    color: #fff;
+    font-size: 14px;
+    font-family: 'Droid Sans', Verdana, Helvetica, sans-serif;
+    font-weight: 300;
+    display: inline
+}
+.news-block .item .bottom h1 {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+    text-decoration: none;
+    color: #000;
+    font-size: 18px;
+    letter-spacing: 0;
+    padding: 10px 15px 0;
+    background-color: #c66a6a;
+    margin: 10px 0 0
+}
+.news-block .item .bottom p {
+    font-family: 'Droid Sans', Verdana, Helvetica, sans-serif;
+    font-weight: 300;
+    font-size: 12px;
+    text-decoration: none;
+    color: #000;
+    letter-spacing: 1px;
+    line-height: 18px;
+    transition: all .5s ease-in-out;
+    background-color: #c66a6a;
+    margin: 0;
+    padding: 5px 15px 15px
+}
+.news-block .item:hover {
+    cursor: pointer
+}
+.news-block .item:hover .top img {
+    opacity: .6
+}
+
+
+
+
+
+.snews .single-news {
+    background-color:#c66a6a; 
+    margin: 0 auto;
+    width: 100%;
+    margin-bottom: 50px;
+    margin-top: 59px;
+    position: relative;
+    z-index: 405;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+.snews .single-news .wrapper {
+    width: 90%;
+    margin: 0 auto;
+    border: 2px solid #a31414;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    background: #a31414;
+}
+.snews .title {
+    margin-top: 10px;
+    margin-bottom: 0;
+    position: relative;
+    z-index: 404;
+    width: 100%
+}
+.snews .title h1 {
+    font-family: 'Droid Sans', Verdana, Helvetica, sans-serif;
+    font-size: 22px;
+    color: #fff;
+    font-weight: 100;
+    padding: 5px 75px 15px 30px;
+    margin: 0;
+    border-bottom: 2px solid #a31414;
+    letter-spacing: 4px
+}
+.snews .title .category {
+    position: absolute;
+    right: 0;
+    margin-top: -36px;
+    background: #333;
+    padding: 10px 15px;
+    color: #fff;
+    font-family: 'Droid Sans', Verdana, Helvetica, sans-serif;
+    font-weight: 300;
+    display: inline
+}
+.snews-block {
+    z-index: 301;
+    position: relative;
+    margin: 0 auto;
+    margin-top: 0;
+    padding: 20px;
+    text-align: center;
+    background-color: #fff;
+    color: #000
+}
+.snews-block p {
+    font-family: 'Droid Sans', Verdana, Helvetica, sans-serif;
+    color: #000;
+    font-size: 16px;
+    font-weight: 300;
+    margin: 0;
+    letter-spacing: 0;
+    line-height: 20px;
+    text-align: left;
+    margin-bottom: 10px
+}
+.snews-block img {
+    width: 50%;
+    text-align: center;
+    margin-top: 5px;
+    margin-bottom: 5px
+}
+.snews .date {
+    font-family: 'Droid Sans', Verdana, Helvetica, sans-serif;
+    font-size: 14px;
+    color: #fff;
+    font-weight: 600;
+    padding: 10px 30px;
+    margin: 0;
+    border-top: 2px solid #a31414;
+    z-index: 404;
+    position: relative;
+    text-align: right;
+    letter-spacing: 5px
+}
+#youtube-video {
+    border: 5px solid #000;
+    background: #000;
+    margin: 0 auto;
+}
+#youtube-video iframe {
+    border: 0px;
+}
+
+
+
+
+
+@media only screen and (max-width: 1024px) {
+    .about .wrapper{
+        padding: 20px;
+    }
+    .about .wrapper p{
+        font-size: 16px;    
+        line-height: 24px;
+    } 
+    .about .wrapper h1 {
+        font-size: 24px;
+    }
+    .tours .item .image{
+        width: 50%;
+    }
+    .tours .item .info {
+        width: 50%;
+    }
+    .tours .item .info .wr1 .wr2 h1 { 
+        font-size: 38px;
+    }
+}
+@media only screen and (max-width: 768px) { 
+    
+}
+@media only screen and (max-width: 667px) { 
+    .about .wrapper{
+        padding: 10px;
+    }
+    .about .wrapper p{
+        font-size: 14px;    
+        line-height: 18px;
+    } 
+    .about .wrapper h1 {
+        font-size: 18px;
+        padding-bottom: 10px;
+        margin-bottom: 10px;
+    }
+    .tours .item .info .wr1 .wr2 h1 { 
+        font-size: 22px;
+        line-height: 28px;
+    }    
+    .intro h1{ 
+        font-size: 22px;
+    }
+    .intro p{
+        font-size: 14px;          
+    }     
+    .map {
+        display: none;
+    }
+    .contacts-block .wrapper  {
+        margin: 0 auto;
+    }
+}
+@media only screen and (max-width: 568px) { 
+    .tours .item .info .wr1 .wr2 h1 { 
+        font-size: 18px;
+        line-height: 24px;
+    }   
+    .intro h1{ 
+        font-size: 18px;
+        margin-top: 0px;
+        margin-bottom: 0px;
+        padding-left: 0px;
+    }
+    .intro p{
+        padding: 0px 0px;
+        font-size: 12px;          
+    }     
+}
+@media only screen and (max-width: 414px) { 
+    .tours .item .info .wr1 .wr2 h1 { 
+        font-size: 16px;
+        line-height: 20px;
+    }   
+    .tours .item .info .wr1 .wr2 p {
+        font-size: 12px;
+        line-height: 18px;
+    }   
+}

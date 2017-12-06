@@ -1,0 +1,238 @@
+html {
+    height: 100%;
+    min-height: 100%;
+    width: 100%;
+    overflow-x: hidden;
+}
+body {
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    height: 100%;
+    min-height: 100%;
+    background-color: #222222;
+}
+section {
+  position: relative;
+  display: table;
+  height: 100%;
+  min-height: 300px;
+  width: 100%;
+  table-layout: fixed;
+  padding-top: 80px;  
+}
+
+
+
+
+
+section .admin-content{
+    display: table-cell;
+    vertical-align: middle;  
+    text-align: center;    
+    background-color: #292929;
+    padding-bottom: 50px;
+    padding-top: 10px;  
+}
+section .admin-content .welcome-text{
+    width: 80%;
+    margin: 0 auto;
+}
+section .admin-content .welcome-text h1{
+  color: #edcd02;
+  font-family: 'Alegreya Sans SC', sans-serif;
+  font-size: 44px;
+  font-weight: 100;
+  margin: 0px 0px 30px 0px;
+  display: inline-block;
+}
+section .admin-content .welcome-text p{
+  color: #686868;
+  font-family: 'Alegreya Sans SC', sans-serif;
+  font-size: 22px;
+  font-weight: 300;
+  margin: 5px 0px;
+}
+section .admin-content .reg-buttons {
+    margin: 40px 0px;
+}
+section .admin-content .login-form, section .admin-content .reset-pass-form,
+section .admin-content .register-form {
+    width: 520px;
+    border: 1px solid #edcd02;
+    margin: 0 auto;
+    padding: 20px;
+}
+section .admin-content .login-form h1, section .admin-content .reset-pass-form h1,
+section .admin-content .register-form h1{
+    color: #edcd02;
+    font-family: 'Alegreya Sans SC', sans-serif;
+    font-size: 36px;
+    font-weight: 300;   
+    margin: 0px 0px 20px 0px; 
+}
+
+section .admin-content.top{
+    height: 100px;
+    vertical-align: top;
+    padding-top: 0px;
+}
+section .admin-content .head{
+    display: table;
+    width: 100%;
+    background-color: #303030;
+    border-bottom: 1px solid #edcd02;
+}
+section .admin-content .head .l {
+    text-align: left;
+    display: table-cell;
+}
+section .admin-content .head .l h1 {
+    color: #edcd02;
+    font-family: 'Alegreya Sans SC', sans-serif;
+    font-size: 36px;
+    font-weight: 100;   
+    margin: 10px 0px 0px 20px;     
+}
+section .admin-content .head .l p {
+  color: #686868;
+  font-family: 'Alegreya Sans SC', sans-serif;
+  font-size: 20px;
+  font-weight: 300;
+  margin: 0px 0px 10px 20px;    
+}
+section .admin-content .head .r {
+    display: table-cell;
+    width: 300px;
+    vertical-align: middle;
+    padding-right: 20px;
+    text-align: right;
+}
+section .admin-content .empty {
+    padding: 30px;
+}
+section .admin-content .empty p {
+  color: #686868;
+  font-family: 'Alegreya Sans SC', sans-serif;
+  font-size: 30px;
+  font-weight: 100;
+  margin: 0px 0px 0px 0px;    
+}
+section .admin-content .row {
+    display: table;
+    width: 100%;
+    table-layout: fixed;
+}
+section .admin-content .row.info {
+    border-bottom: 1px solid #edcd02; 
+    color: #686868;
+    font-family: 'Alegreya Sans SC', sans-serif;
+    font-size: 18px;      
+}
+section .admin-content .row.even {
+    background-color: #303030;
+}
+section .admin-content .row.odd {
+    background-color: #383838;   
+}
+section .admin-content .row .cell{
+    display: table-cell;
+    vertical-align: middle;
+    text-align: left;
+    padding: 15px;
+}
+section .admin-content .row .cell.id{
+    width: 20px;
+}
+section .admin-content .row .cell.date{
+    width: 150px;
+}
+section .admin-content .row .cell.image{
+    width: 150px;
+}
+section .admin-content .row .cell.email{
+    width: 250px;
+}
+section .admin-content .row .cell.role{
+    width: 150px;
+}
+section .admin-content .row .cell.image img{
+    width: 110px;
+    display: block;
+    margin: 0 auto;
+}
+section .admin-content .row .cell.actions{
+    width: 270px;
+}
+section .admin-content .row .cell.actions a{
+    margin-right: 5px;
+}
+section .admin-content .row.entity .cell{
+    color: #686868;
+    font-family: 'Alegreya Sans SC', sans-serif;
+    font-size: 18px;      
+}
+section .admin-content .entity-form {
+    display: table;
+    table-layout: fixed;
+    width: 100%
+}
+section .admin-content .entity-form .l {
+    display: table-cell;
+    padding: 20px;
+}
+section .admin-content .entity-form .r {
+    display: table-cell;
+    width: 280px;
+}
+
+section .admin-content .entity-form .form-group {
+    text-align: left;
+    margin-bottom:10px;
+}
+section .admin-content .entity-form .form-group.buttons {
+    margin-top: 50px;
+}
+section .admin-content .entity-form label {
+    color: #edcd02;
+    font-family: 'Alegreya Sans SC', sans-serif;
+    font-size: 22px;
+    font-weight: 100;   
+    margin: 10px 0px;
+    display: block;
+}
+section .admin-content .entity-form .preview-block {
+    display: none;
+    padding: 20px 0px;
+}
+section .admin-content .entity-form .preview-block.show {
+    display: block;
+}
+section .admin-content .entity-form .preview-block img{
+    width: 100%;
+    max-width: 400px;
+    display: block;
+    border: 1px solid #edcd02;
+}
+section .admin-content .entity-form .tips {
+    border: 1px solid #edcd02;
+    padding: 10px;
+    margin: 20px;
+    text-align: left;
+}
+section .admin-content .entity-form .tips p {
+    color: #edcd02;
+    font-family: 'Alegreya Sans SC', sans-serif;
+    font-size: 18px;
+    font-weight: 300; 
+    margin: 15px 0px;    
+}
+section .admin-content .entity-form h2 {
+    color: #edcd02;
+    font-family: 'Alegreya Sans SC', sans-serif;
+    font-size: 22px;
+    font-weight: 100;   
+    margin: 10px 0px;
+    display: block;
+    text-align: left;
+}
