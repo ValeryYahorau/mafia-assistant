@@ -1,1 +1,1 @@
-# mafia-assistant
+# mafia-assistant project
