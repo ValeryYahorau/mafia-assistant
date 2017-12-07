@@ -74,7 +74,7 @@ header .locales a{
   text-decoration: none;
   padding: 20px 25px;
   display: block;
-  letter-spacing: 3px;
+  letter-spacing: 0px;
 }
 .page-sidebar ul li a i{
   margin-right: 10px;
