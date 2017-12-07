@@ -11,6 +11,16 @@ Route::group(['prefix' => LaravelLocalization::setLocale(),'middleware' => ['loc
 	Route::get('/admin/delete-user/{id}','UserController@delete');
 	Route::get('/admin/approve-user/{id}','UserController@approve');
 
+    Route::get('/admin/games/{type}','GameController@all');
+
+
+
+
+
+
+
+
+
 	Route::get('/admin/create-event','EventController@create');
 	Route::post('/admin/save-event','EventController@save');
 	Route::get('/admin/edit-event/{id}','EventController@edit');
@@ -53,3 +63,6 @@ Route::group(['middleware' => 'web'], function () {
 	Route::post('delete-photo', ['as' => 'delete-photo', 'uses' =>'PhotoreportController@deletePhoto']);
 	
 });
+
+
+
