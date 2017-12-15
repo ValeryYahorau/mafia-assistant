@@ -19,7 +19,6 @@ class Players extends Migration
             $table->string('name_en');
             $table->string('real_name');
             $table->string('img_path');
-            $table->string('slug')->unique();
             $table->text('info');
             $table->timestamps();
         });

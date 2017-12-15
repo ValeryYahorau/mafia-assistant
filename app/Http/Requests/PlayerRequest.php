@@ -4,7 +4,7 @@ use App\Http\Requests\Request;
 use App\User;
 use Auth;
 
-class NewsRequest extends Request {
+class PlayerRequest extends Request {
   /**
    * Determine if the user is authorized to make this request.
    *
@@ -26,9 +26,10 @@ class NewsRequest extends Request {
   public function rules()
   {
     return [
-      'title_en' => 'required|max:255',
-      'title_ru' => 'required|max:255',     
-      'date'  => 'required',
+      'name_en' => 'max:255',
+      'name_ru' => 'required|max:255',
+      'real_name' => 'required|max:255',
+      'image' => 'mimes:jpeg,png|max:1024',
     ];
   }    
 }
