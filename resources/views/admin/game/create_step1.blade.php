@@ -15,7 +15,7 @@
         </div>
         <div class="entity-form">
 
-            <form action="{{ LaravelLocalization::localizeURL('/admin/save-game') }}" method="post" enctype="multipart/form-data">
+            <form action="{{ LaravelLocalization::localizeURL('/admin/save-game-step1') }}" method="post" enctype="multipart/form-data">
                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
                 <input type="hidden" name="type" value="{{ $type }}">
 

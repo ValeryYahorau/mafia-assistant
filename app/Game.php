@@ -9,5 +9,10 @@ class Game extends Model {
     public function delete()
     {
         return parent::delete();
-    }  
+    }
+
+    public function user()
+    {
+        return $this->belongsTo('App\User','user_id');
+    }
 }

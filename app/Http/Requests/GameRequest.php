@@ -4,7 +4,7 @@ use App\Http\Requests\Request;
 use App\User;
 use Auth;
 
-class SEORequest extends Request
+class GameRequest extends Request
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -27,8 +27,17 @@ class SEORequest extends Request
     public function rules()
     {
         return [
-            'route' => 'required',
-            'locale' => 'required',
+            'player1' => 'required',
+            'player2' => 'required',
+            'player3' => 'required',
+            'player4' => 'required',
+            'player5' => 'required',
+            'player6' => 'required',
+            'player7' => 'required',
+            'player8' => 'required',
+            'player9' => 'required',
+            'player10' => 'required',
+            'type' => 'required'
         ];
     }
-} 
+}
