@@ -3,13 +3,11 @@
 namespace App\Http\Controllers;
 
 use Log;
-use Image;
-use File;
 use App\Game;
 use App\Player;
+use App\Gameplayer;
 use Redirect;
 use App\Http\Requests\GameRequest;
-use App\Http\Requests;
 use Illuminate\Http\Request;
 
 class GameController extends Controller
@@ -34,23 +32,36 @@ class GameController extends Controller
             $game = new Game();
             $game->type = $request->get('type');
             $game->user_id = $request->user()->id;
-
-            /**
-             * $event->title_ru = $request->get('player1');
-             * $event->title_ru = $request->get('player2');
-             * $event->title_ru = $request->get('player3');
-             * $event->title_ru = $request->get('player4');
-             * $event->title_ru = $request->get('player5');
-             * $event->title_ru = $request->get('player6');
-             * $event->title_ru = $request->get('player7');
-             * $event->title_ru = $request->get('player8');
-             * $event->title_ru = $request->get('player9');
-             * $event->title_ru = $request->get('player10');
-             **/
             $game->save();
 
-            return redirect('/admin/games');
+            $roles = array('red', 'red', 'red', 'red', 'red', 'red', 'sheriff', 'black', 'black', 'don',);
+            shuffle($roles);
+
+            $this->saveGamePlayer(array_pop($roles), $request->get('player1'), $game->id, 1);
+            $this->saveGamePlayer(array_pop($roles), $request->get('player2'), $game->id, 2);
+            $this->saveGamePlayer(array_pop($roles), $request->get('player3'), $game->id, 3);
+            $this->saveGamePlayer(array_pop($roles), $request->get('player4'), $game->id, 4);
+            $this->saveGamePlayer(array_pop($roles), $request->get('player5'), $game->id, 5);
+            $this->saveGamePlayer(array_pop($roles), $request->get('player6'), $game->id, 6);
+            $this->saveGamePlayer(array_pop($roles), $request->get('player7'), $game->id, 7);
+            $this->saveGamePlayer(array_pop($roles), $request->get('player8'), $game->id, 8);
+            $this->saveGamePlayer(array_pop($roles), $request->get('player9'), $game->id, 9);
+            $this->saveGamePlayer(array_pop($roles), $request->get('player10'), $game->id, 10);
+
+            $gameplayers = Gameplayer::where('game_id', $game->id)->orderBy('position', 'asc')->get();
+
+            return view('admin.game.create_step2')->withGame($game)->withGameplayers($gameplayers);
         }
+    }
+
+    private function saveGamePlayer($role, $player_id, $game_id, $position)
+    {
+        $gamePlayer = new Gameplayer();
+        $gamePlayer->role = $role;
+        $gamePlayer->player_id = $player_id;
+        $gamePlayer->game_id = $game_id;
+        $gamePlayer->position = $position;
+        $gamePlayer->save();
     }
 
     public function delete(Request $request, $id)

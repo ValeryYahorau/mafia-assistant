@@ -5,4 +5,4 @@ Example:
 php artisan make:migration tournaments
 php artisan make:migration games
 php artisan make:migration players
-php artisan make:migration games_members
+php artisan make:migration game_players
