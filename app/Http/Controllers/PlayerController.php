@@ -7,7 +7,6 @@ use Image;
 use File;
 use App\PLayer;
 use Redirect;
-use App\Http\Requests;
 use App\Http\Requests\PlayerRequest;
 use Illuminate\Http\Request;
 
@@ -35,6 +34,7 @@ class PlayerController extends Controller
             $player->name_en = $request->get('name_en');
             $player->name_ru = $request->get('name_ru');
             $player->real_name = $request->get('real_name');
+            $player->type = $request->get('type');
             $player->info = $request->get('info');
 
             if ($request->hasFile('image')) {
@@ -50,7 +50,6 @@ class PlayerController extends Controller
             return redirect('/admin/players')->with($data);
         }
     }
-
 
     public function edit(Request $request, $id)
     {
@@ -73,6 +72,7 @@ class PlayerController extends Controller
                 $player->name_en = $request->get('name_en');
                 $player->name_ru = $request->get('name_ru');
                 $player->real_name = $request->get('real_name');
+                $player->type = $request->get('type');
                 $player->info = $request->get('info');
 
                 if ($request->hasFile('image')) {

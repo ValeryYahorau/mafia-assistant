@@ -20,7 +20,8 @@ Route::group(['prefix' => LaravelLocalization::setLocale(),'middleware' => ['loc
     Route::post('/admin/update-player','PlayerController@update');
 
 
-    Route::get('/admin/games/{type}','GameController@all');
+    Route::get('/admin/games','GameController@all');
+    Route::get('/admin/create-game/{type}','GameController@create');
 
 
 

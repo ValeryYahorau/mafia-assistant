@@ -4,12 +4,9 @@
   <div class="admin-content top">
     <div class="head">
       <div class="l">
-        <h1>Игры</h1>
+        <h1>{{$label}} игры</h1>
       </div>
-      <div class="r">
-          <a href="{{url('/admin/create-game/simple')}}" class="btn btn-small btn-green">CREATE FUN</a>
-          <a href="{{url('/admin/create-game/raiting')}}" class="btn btn-small btn-green">CREATE RAITING</a>
-      </div>
+      <div class="r"><a href="{{url('/admin/create-game/'.$type)}}" class="btn btn-small btn-green">CREATE</a></div>
     </div>
     @if ( !$games->count() )
       <div class="empty">

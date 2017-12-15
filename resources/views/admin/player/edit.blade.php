@@ -16,8 +16,8 @@
     <div class="entity-form">
       <div class="l">
         <form action="{{ LaravelLocalization::localizeURL('/admin/update-player') }}" method="post" enctype="multipart/form-data">
-            <input type="hidden" name="player_id" value="{{ $player->id }}">
             <input type="hidden" name="_token" value="{{ csrf_token() }}">
+            <input type="hidden" name="player_id" value="{{ $player->id }}">
 
             <div class="form-group">
                 <label>Name RU</label>
