@@ -35,6 +35,12 @@ class PlayerController extends Controller
             $player->name_ru = $request->get('name_ru');
             $player->real_name = $request->get('real_name');
             $player->type = $request->get('type');
+            $player->sex = $request->get('sex');
+            if ($request->get('rating') == "on") {
+                $player->rating =true;
+            } else {
+                $player->rating =false;
+            }
             $player->info = $request->get('info');
 
             if ($request->hasFile('image')) {
@@ -73,6 +79,12 @@ class PlayerController extends Controller
                 $player->name_ru = $request->get('name_ru');
                 $player->real_name = $request->get('real_name');
                 $player->type = $request->get('type');
+                $player->sex = $request->get('sex');
+                if ($request->get('rating') == "on") {
+                    $player->rating =true;
+                } else {
+                    $player->rating =false;
+                }
                 $player->info = $request->get('info');
 
                 if ($request->hasFile('image')) {

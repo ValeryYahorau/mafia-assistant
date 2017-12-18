@@ -36,8 +36,7 @@ class GameRequest extends Request
             'player7' => 'required',
             'player8' => 'required',
             'player9' => 'required',
-            'player10' => 'required',
-            'type' => 'required'
+            'player10' => 'required'
         ];
     }
 }

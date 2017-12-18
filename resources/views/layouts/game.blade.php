@@ -5,9 +5,7 @@
 </head>
 <body id="app-layout">
 
-  @include('admin.include.header')
-    
-  <section>
+  <section class="game">
     @yield('content')    
   </section>
 
@@ -28,10 +26,9 @@
       </p>
       <a href="#" class="alert-close"></a>
     </div>
-  @endif 
-  
-  @include('admin.include.footer')
-    
+  @endif
+  <script type="text/javascript" src="{{ asset('noc_admin/js/jquery-2.1.1.min.js') }}"></script>
+  <script type="text/javascript" src="{{ asset('noc_admin/js/main.js') }}"></script>
   @yield('page-js')
 </body>
 </html>

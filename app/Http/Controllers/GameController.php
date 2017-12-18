@@ -18,11 +18,11 @@ class GameController extends Controller
         $this->middleware('auth');
     }
 
-    public function create(Request $request, $type)
+    public function create(Request $request)
     {
         if ($request->user()->is_admin()) {
             $players = Player::orderBy('name_ru', 'asc')->get();
-            return view('admin.game.create_step1')->withType($type)->withPlayers($players);
+            return view('admin.game.create_step1')->withPlayers($players);
         }
     }
 
@@ -30,7 +30,6 @@ class GameController extends Controller
     {
         if ($request->user()->is_admin()) {
             $game = new Game();
-            $game->type = $request->get('type');
             $game->user_id = $request->user()->id;
             $game->save();
 
@@ -48,7 +47,17 @@ class GameController extends Controller
             $this->saveGamePlayer(array_pop($roles), $request->get('player9'), $game->id, 9);
             $this->saveGamePlayer(array_pop($roles), $request->get('player10'), $game->id, 10);
 
-            return redirect('/admin/game/'.$game->id);
+            $arrayIds = array($request->get('player1'), $request->get('player2'), $request->get('player3'), $request->get('player4'),
+                $request->get('player5'), $request->get('player6'), $request->get('player7'), $request->get('player8'),
+                $request->get('player9'), $request->get('player10'));
+
+            $count = Player::whereIn('id', $arrayIds)->where('rating', false)->count();
+            if ($count == 0) {
+                $game->type = "rating";
+                $game->save();
+            }
+
+            return redirect('/admin/game/' . $game->id);
         }
     }
 

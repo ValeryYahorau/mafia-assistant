@@ -35,6 +35,23 @@
             </div>
 
             <div class="form-group">
+                <label>Sex</label>
+                <div class="select-wrapper">
+                    <select name="sex">
+                        <option @if ($player->sex == "male")
+                                selected
+                                @endif value="male">Male</option>
+                        <option @if ($player->sex == "female")
+                                selected
+                                @endif value="female">Female</option>
+                    </select>
+                </div>
+                @if ($errors->has('sex'))
+                    <span class="help-block">{{ $errors->first('sex') }}</span>
+                @endif
+            </div>
+
+            <div class="form-group">
               <label>Real Name</label>
               <input value="{{$player->real_name}}" placeholder="" type="text" name = "real_name" class="form-control" />
               @if ($errors->has('real_name'))
@@ -66,6 +83,11 @@
                 @if ($errors->has('type'))
                     <span class="help-block">{{ $errors->first('type') }}</span>
                 @endif
+            </div>
+
+            <div class="form-group">
+                <label>Rating</label>
+                {{ Form::checkbox('rating', null, $player->rating) }}
             </div>
 
             <div class="form-group">

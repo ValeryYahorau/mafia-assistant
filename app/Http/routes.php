@@ -11,7 +11,6 @@ Route::group(['prefix' => LaravelLocalization::setLocale(),'middleware' => ['loc
 	Route::get('/admin/delete-user/{id}','UserController@delete');
 	Route::get('/admin/approve-user/{id}','UserController@approve');
 
-
     Route::get('/admin/players','PlayerController@all');
     Route::get('/admin/create-player','PlayerController@create');
     Route::post('/admin/save-player','PlayerController@save');
@@ -21,7 +20,7 @@ Route::group(['prefix' => LaravelLocalization::setLocale(),'middleware' => ['loc
 
 
     Route::get('/admin/games','GameController@all');
-    Route::get('/admin/create-game/{type}','GameController@create');
+    Route::get('/admin/create-game','GameController@create');
     Route::post('/admin/save-game-step1','GameController@saveStep1');
 
     Route::get('/admin/delete-game/{id}','GameController@delete');

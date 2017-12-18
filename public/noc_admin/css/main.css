@@ -19,7 +19,7 @@ section {
   min-height: 300px;
   width: 100%;
   table-layout: fixed;
-  padding-top: 80px;  
+  padding-top: 80px;
 }
 
 
@@ -28,18 +28,18 @@ section {
 
 section .admin-content{
     display: table-cell;
-    vertical-align: middle;  
-    text-align: center;    
+    vertical-align: middle;
+    text-align: center;
     background-color: #292929;
     padding-bottom: 50px;
-    padding-top: 10px;  
+    padding-top: 10px;
 }
 section .admin-content .welcome-text{
     width: 80%;
     margin: 0 auto;
 }
 section .admin-content .welcome-text h1{
-  color: #edcd02;
+  color: #e7e6e0;
   font-family: 'Alegreya Sans SC', sans-serif;
   font-size: 44px;
   font-weight: 100;
@@ -59,17 +59,17 @@ section .admin-content .reg-buttons {
 section .admin-content .login-form, section .admin-content .reset-pass-form,
 section .admin-content .register-form {
     width: 520px;
-    border: 1px solid #edcd02;
+    border: 1px solid #e7e6e0;
     margin: 0 auto;
     padding: 20px;
 }
 section .admin-content .login-form h1, section .admin-content .reset-pass-form h1,
 section .admin-content .register-form h1{
-    color: #edcd02;
+    color: #e7e6e0;
     font-family: 'Alegreya Sans SC', sans-serif;
     font-size: 36px;
-    font-weight: 300;   
-    margin: 0px 0px 20px 0px; 
+    font-weight: 300;
+    margin: 0px 0px 20px 0px;
 }
 
 section .admin-content.top{
@@ -81,25 +81,25 @@ section .admin-content .head{
     display: table;
     width: 100%;
     background-color: #303030;
-    border-bottom: 1px solid #edcd02;
+    border-bottom: 1px solid #e7e6e0;
 }
 section .admin-content .head .l {
     text-align: left;
     display: table-cell;
 }
 section .admin-content .head .l h1 {
-    color: #edcd02;
+    color: #e7e6e0;
     font-family: 'Alegreya Sans SC', sans-serif;
     font-size: 36px;
-    font-weight: 100;   
-    margin: 10px 0px 0px 20px;     
+    font-weight: 100;
+    margin: 10px 0px 0px 20px;
 }
 section .admin-content .head .l p {
   color: #686868;
   font-family: 'Alegreya Sans SC', sans-serif;
   font-size: 20px;
   font-weight: 300;
-  margin: 0px 0px 10px 20px;    
+  margin: 0px 0px 10px 20px;
 }
 section .admin-content .head .r {
     display: table-cell;
@@ -116,7 +116,7 @@ section .admin-content .empty p {
   font-family: 'Alegreya Sans SC', sans-serif;
   font-size: 30px;
   font-weight: 100;
-  margin: 0px 0px 0px 0px;    
+  margin: 0px 0px 0px 0px;
 }
 section .admin-content .row {
     display: table;
@@ -124,16 +124,16 @@ section .admin-content .row {
     table-layout: fixed;
 }
 section .admin-content .row.info {
-    border-bottom: 1px solid #edcd02; 
+    border-bottom: 1px solid #e7e6e0;
     color: #686868;
     font-family: 'Alegreya Sans SC', sans-serif;
-    font-size: 18px;      
+    font-size: 18px;
 }
 section .admin-content .row.even {
     background-color: #303030;
 }
 section .admin-content .row.odd {
-    background-color: #383838;   
+    background-color: #383838;
 }
 section .admin-content .row .cell{
     display: table-cell;
@@ -170,7 +170,7 @@ section .admin-content .row .cell.actions a{
 section .admin-content .row.entity .cell{
     color: #686868;
     font-family: 'Alegreya Sans SC', sans-serif;
-    font-size: 18px;      
+    font-size: 18px;
 }
 section .admin-content .entity-form {
     display: table;
@@ -194,10 +194,10 @@ section .admin-content .entity-form .form-group.buttons {
     margin-top: 50px;
 }
 section .admin-content .entity-form label {
-    color: #edcd02;
+    color: #e7e6e0;
     font-family: 'Alegreya Sans SC', sans-serif;
     font-size: 22px;
-    font-weight: 100;   
+    font-weight: 100;
     margin: 10px 0px;
     display: block;
 }
@@ -212,27 +212,89 @@ section .admin-content .entity-form .preview-block img{
     width: 100%;
     max-width: 400px;
     display: block;
-    border: 1px solid #edcd02;
+    border: 1px solid #e7e6e0;
 }
 section .admin-content .entity-form .tips {
-    border: 1px solid #edcd02;
+    border: 1px solid #e7e6e0;
     padding: 10px;
     margin: 20px;
     text-align: left;
 }
 section .admin-content .entity-form .tips p {
-    color: #edcd02;
+    color: #e7e6e0;
     font-family: 'Alegreya Sans SC', sans-serif;
     font-size: 18px;
-    font-weight: 300; 
-    margin: 15px 0px;    
+    font-weight: 300;
+    margin: 15px 0px;
 }
 section .admin-content .entity-form h2 {
-    color: #edcd02;
+    color: #e7e6e0;
     font-family: 'Alegreya Sans SC', sans-serif;
     font-size: 22px;
-    font-weight: 100;   
+    font-weight: 100;
     margin: 10px 0px;
     display: block;
     text-align: left;
+}
+
+
+
+
+section .game-content .head h1{
+    color: #e7e6e0;
+    font-family: 'Alegreya Sans SC', sans-serif;
+    font-size: 36px;
+    font-weight: 100;
+    margin: 10px 0px 0px 20px;
+}
+section .game-content .entity-form .form-group.even {
+    background: #222222;
+    padding: 5px 20px 25px 20px;
+    margin-bottom: 0px;
+}
+section .game-content .entity-form .form-group.odd {
+    background: #1e1e1e;
+    padding: 5px 20px 25px 20px;
+    margin-bottom: 0px;
+}
+section .game-content .entity-form .table{
+    display: table;
+    width: 100%;
+    table-layout: fixed;
+}
+section .game-content .entity-form .l {
+    width: 50%;
+    padding: 0px;
+}
+section .game-content .entity-form .r {
+    width: 50%;
+    padding: 0px;
+}
+section .game-content .entity-form  .chosen-container {
+    width: 100%!important;
+}
+section.game {
+    padding-top: 0px;
+}
+section .game-content .entity-form label {
+    font-size: 16px;
+    margin: 10px 0px 0px 0px;
+}
+section .game-content .entity-form .show-role-group{
+    display: inline-block;
+    width: 100%;
+}
+section .game-content .entity-form .form-group .name{
+    color: #dfbe82;
+    font-family: 'Alegreya Sans SC', sans-serif;
+    font-size: 24px;
+    font-weight: 300;
+}
+section .game-content .entity-form .form-group a.show-role {
+    float: right;
+    margin-top: -40px;
+}
+section .game-content .entity-form .form-group.buttons {
+     text-align: center;
+     margin-top: 10px;
 }

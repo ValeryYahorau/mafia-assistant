@@ -7,8 +7,7 @@
         <h1>Игры</h1>
       </div>
       <div class="r">
-          <a href="{{url('/admin/create-game/simple')}}" class="btn btn-small btn-green">CREATE FUN</a>
-          <a href="{{url('/admin/create-game/raiting')}}" class="btn btn-small btn-green">CREATE RAITING</a>
+          <a href="{{url('/admin/create-game')}}" class="btn btn-small btn-green">CREATE</a>
       </div>
     </div>
     @if ( !$games->count() )
