@@ -7,6 +7,10 @@
 @section('content')
     <div class="admin-content top game-content">
         <div class="head">
+            <h2>Игра # {{$game->id}} / Тип игры: <strong>
+                @if ($game->type == "simple") Фановая @endif
+                    @if ($game->type == "rating") Рейтинговая @endif</strong>
+            </h2>
             <h1>Покажите цвета игрокам</h1>
         </div>
         <div class="entity-form">

@@ -247,6 +247,13 @@ section .game-content .head h1{
     font-weight: 100;
     margin: 10px 0px 0px 20px;
 }
+section .game-content .head h2 {
+    color: #e7e6e0;
+    font-family: 'Alegreya Sans SC', sans-serif;
+    font-size: 25px;
+    font-weight: 100;
+    margin: 10px 0px 0px 20px;
+}
 section .game-content .entity-form .form-group.even {
     background: #222222;
     padding: 5px 20px 25px 20px;
@@ -293,6 +300,10 @@ section .game-content .entity-form .form-group .name{
 section .game-content .entity-form .form-group a.show-role {
     float: right;
     margin-top: -40px;
+    background: #1e1e1e;
+}
+section .game-content .entity-form .form-group a.show-role:hover {
+    background: #dfbe82;
 }
 section .game-content .entity-form .form-group.buttons {
      text-align: center;

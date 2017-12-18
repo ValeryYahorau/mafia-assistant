@@ -85,7 +85,6 @@ class GameController extends Controller
         }
     }
 
-
     public function view(Request $request, $id)
     {
         if ($request->user()->is_admin()) {
