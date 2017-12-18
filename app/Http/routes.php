@@ -22,6 +22,8 @@ Route::group(['prefix' => LaravelLocalization::setLocale(),'middleware' => ['loc
     Route::get('/admin/games','GameController@all');
     Route::get('/admin/create-game','GameController@create');
     Route::post('/admin/save-game-step1','GameController@saveStep1');
+    Route::post('/admin/save-game-step2','GameController@saveStep2');
+    Route::post('/admin/save-game-step3','GameController@saveStep3');
 
     Route::get('/admin/delete-game/{id}','GameController@delete');
     Route::get('/admin/game/{id}','GameController@view');

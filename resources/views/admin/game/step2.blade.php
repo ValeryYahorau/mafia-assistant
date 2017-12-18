@@ -15,12 +15,15 @@
         </div>
         <div class="entity-form">
 
-            <form action="{{ LaravelLocalization::localizeURL('/admin/save-game-step1') }}" method="post" enctype="multipart/form-data">
+            <form action="{{ LaravelLocalization::localizeURL('/admin/save-game-step2') }}" method="post" enctype="multipart/form-data">
                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                <input type="hidden" name="game_id" value="{{ $game->id }}">
+
                 <div class="table">
                     <div class="l">
                         @foreach( $gameplayers as $index => $gameplayer )
                             @if ($gameplayer->position < 6)
+                                <input type="hidden" name="player{{ $gameplayer->position }}" value="{{ $gameplayer->player->id }}">
                                 <div class="form-group {{ $index% 2 == 0 ? ' odd' : 'even' }}">
                                     <label>Игрок #{{ $gameplayer->position }}</label>
                                     <div class="name">{{ $gameplayer->player->name_ru }}/{{ $gameplayer->player->name_en }}</div>
@@ -51,6 +54,7 @@
                     <div class="r">
                         @foreach( $gameplayers as $index => $gameplayer )
                             @if ($gameplayer->position > 5)
+                                <input type="hidden" name="player{{ $gameplayer->position }}" value="{{ $gameplayer->player->id }}">
                                 <div class="form-group {{ $index% 2 == 0 ? ' odd' : 'even' }}">
                                     <label>Игрок #{{ $gameplayer->position }}</label>
                                     <div class="name">{{ $gameplayer->player->name_ru }}/{{ $gameplayer->player->name_en }}</div>

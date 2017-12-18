@@ -22,7 +22,7 @@ class GameController extends Controller
     {
         if ($request->user()->is_admin()) {
             $players = Player::orderBy('name_ru', 'asc')->get();
-            return view('admin.game.create_step1')->withPlayers($players);
+            return view('admin.game.step1')->withPlayers($players);
         }
     }
 
@@ -56,19 +56,49 @@ class GameController extends Controller
                 $game->type = "rating";
                 $game->save();
             }
-
             return redirect('/admin/game/' . $game->id);
         }
     }
 
-    private function saveGamePlayer($role, $player_id, $game_id, $position)
+    public function saveStep2(Request $request)
     {
-        $gamePlayer = new Gameplayer();
-        $gamePlayer->role = $role;
-        $gamePlayer->player_id = $player_id;
-        $gamePlayer->game_id = $game_id;
-        $gamePlayer->position = $position;
-        $gamePlayer->save();
+        if ($request->user()->is_admin()) {
+            $game_id = $request->input('game_id');
+            $game = Game::where('id', $game_id)->first();
+            if ($game) {
+                $game->status = "in_progress";
+                $game->save();
+                return redirect('/admin/game/' . $game->id);
+            } else {
+                return redirect('/admin/players')->withErrors('There is no such game.');
+            }
+        }
+    }
+
+    public function saveStep3(Request $request)
+    {
+        if ($request->user()->is_admin()) {
+            $game_id = $request->input('game_id');
+            $game = Game::where('id', $game_id)->first();
+
+            $result = $request->get('result');
+            $this->updateGamePlayer($result, $request->get('additional_points_1'), $game->id, 1);
+            $this->updateGamePlayer($result, $request->get('additional_points_2'), $game->id, 2);
+            $this->updateGamePlayer($result, $request->get('additional_points_3'), $game->id, 3);
+            $this->updateGamePlayer($result, $request->get('additional_points_4'), $game->id, 4);
+            $this->updateGamePlayer($result, $request->get('additional_points_5'), $game->id, 5);
+            $this->updateGamePlayer($result, $request->get('additional_points_6'), $game->id, 6);
+            $this->updateGamePlayer($result, $request->get('additional_points_7'), $game->id, 7);
+            $this->updateGamePlayer($result, $request->get('additional_points_8'), $game->id, 8);
+            $this->updateGamePlayer($result, $request->get('additional_points_9'), $game->id, 9);
+            $this->updateGamePlayer($result, $request->get('additional_points_10'), $game->id, 10);
+
+            $game->status = "ended";
+            $game->result = $result;
+            $game->save();
+
+            return redirect('/admin/game/' . $game->id);
+        }
     }
 
     public function delete(Request $request, $id)
@@ -92,7 +122,15 @@ class GameController extends Controller
             if ($game) {
                 if ($game->status == "preparation") {
                     $gameplayers = Gameplayer::where('game_id', $game->id)->orderBy('position', 'asc')->get();
-                    return view('admin.game.create_step2')->withGame($game)->withGameplayers($gameplayers);
+                    return view('admin.game.step2')->withGame($game)->withGameplayers($gameplayers);
+                }
+                if ($game->status == "in_progress") {
+                    $gameplayers = Gameplayer::where('game_id', $game->id)->orderBy('position', 'asc')->get();
+                    return view('admin.game.step3')->withGame($game)->withGameplayers($gameplayers);
+                }
+                if ($game->status == "ended") {
+                    $gameplayers = Gameplayer::where('game_id', $game->id)->orderBy('position', 'asc')->get();
+                    return view('admin.game.step4')->withGame($game)->withGameplayers($gameplayers);
                 }
             } else {
                 return redirect('/admin/games')->withErrors('There is no such game.');
@@ -121,4 +159,37 @@ class GameController extends Controller
             return view('admin.game.all')->withGames($games);
         }
     }
+
+
+    private function saveGamePlayer($role, $player_id, $game_id, $position)
+    {
+        $gamePlayer = new Gameplayer();
+        $gamePlayer->role = $role;
+        $gamePlayer->player_id = $player_id;
+        $gamePlayer->game_id = $game_id;
+        $gamePlayer->position = $position;
+        $gamePlayer->save();
+    }
+
+    private function updateGamePlayer($result, $additional_points, $game_id, $position)
+    {
+        $gamePlayer = Gameplayer::where('game_id', $game_id)->where('position', $position)->first();
+        if ($result == "red_win" && ($gamePlayer->role == "red" || $gamePlayer->role == "sheriff")) {
+            $gamePlayer->points = 2;
+            $gamePlayer->result = "win";
+
+        } else if ($result == "black_win" && ($gamePlayer->role == "black" || $gamePlayer->role == "don")) {
+            $gamePlayer->points = 2;
+            $gamePlayer->result = "win";
+        } else if ($result == "draw") {
+            $gamePlayer->points = 0;
+            $gamePlayer->result = "draw";
+        } else {
+            $gamePlayer->points = 0;
+            $gamePlayer->result = "lose";
+        }
+        $gamePlayer->additional_points = $additional_points;
+        $gamePlayer->save();
+    }
+
 }

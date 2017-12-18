@@ -16,7 +16,8 @@ class GamePlayers extends Migration
             $table->foreign('player_id')->references('id')->on('players')->onDelete('cascade');
 
             $table->enum('role', ['red', 'sheriff', 'black', 'don', 'none'])->default('none');
-            $table->enum('result', ['win', 'lose', 'none'])->default('none');
+            $table->enum('result', ['win', 'lose', 'draw', 'none'])->default('none');
+            $table->integer('points')->default(0);
             $table->integer('additional_points')->default(0);
             $table->integer('position')->default(0);
         });

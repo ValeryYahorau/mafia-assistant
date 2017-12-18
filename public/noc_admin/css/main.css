@@ -309,3 +309,25 @@ section .game-content .entity-form .form-group.buttons {
      text-align: center;
      margin-top: 10px;
 }
+section .game-content .result-choise {
+    width: 200px;
+    text-align: left;
+    margin: 0 auto;
+    padding: 3px 0px;
+}
+section .game-content .result-choise label{
+    display: initial;
+    font-size: 20px;
+    font-weight: 500;
+    color: #000;
+    font-family: 'Alegreya Sans SC', sans-serif;
+}
+section .game-content .result-choise.red label{
+    color: red;
+}
+section .game-content .result-choise.white label{
+    color: white;
+}
+section .game-content .margin-top {
+    margin-top: 10px;
+}
