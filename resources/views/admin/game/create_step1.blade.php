@@ -8,8 +8,7 @@
     <div class="admin-content top">
         <div class="head">
             <div class="l">
-                <h1>Create new event</h1>
-                <p>Please use form below to create new event.</p>
+                <h1>Выберите игроков</h1>
             </div>
             <div class="r"></div>
         </div>
@@ -168,7 +167,7 @@
 
 
                 <div class="form-group buttons">
-                    <button type="submit" class="btn btn-yellow">Save</button>
+                    <button type="submit" class="btn btn-yellow">Игроки выбраны, перейти к расдаче цветов</button>
                 </div>
             </form>
 
@@ -182,8 +181,4 @@
     <script type="text/javascript" src="{{ asset('noc_admin/plugins/chosen/chosen.jquery.js') }}"></script>
     <script type="text/javascript" src="{{ asset('noc_admin/plugins/chosen/docsupport/prism.js') }}"></script>
     <script type="text/javascript" src="{{ asset('noc_admin/plugins/chosen/docsupport/init.js') }}"></script>
-
-    <script type="text/javascript">
-
-    </script>
 @endsection

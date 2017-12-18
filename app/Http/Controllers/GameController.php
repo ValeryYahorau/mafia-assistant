@@ -48,9 +48,7 @@ class GameController extends Controller
             $this->saveGamePlayer(array_pop($roles), $request->get('player9'), $game->id, 9);
             $this->saveGamePlayer(array_pop($roles), $request->get('player10'), $game->id, 10);
 
-            $gameplayers = Gameplayer::where('game_id', $game->id)->orderBy('position', 'asc')->get();
-
-            return view('admin.game.create_step2')->withGame($game)->withGameplayers($gameplayers);
+            return redirect('/admin/game/'.$game->id);
         }
     }
 
@@ -77,6 +75,23 @@ class GameController extends Controller
             }
         }
     }
+
+
+    public function view(Request $request, $id)
+    {
+        if ($request->user()->is_admin()) {
+            $game = Game::find($id);
+            if ($game) {
+                if ($game->status == "preparation") {
+                    $gameplayers = Gameplayer::where('game_id', $game->id)->orderBy('position', 'asc')->get();
+                    return view('admin.game.create_step2')->withGame($game)->withGameplayers($gameplayers);
+                }
+            } else {
+                return redirect('/admin/games')->withErrors('There is no such game.');
+            }
+        }
+    }
+
 
     public function alltmp(Request $request, $type)
     {

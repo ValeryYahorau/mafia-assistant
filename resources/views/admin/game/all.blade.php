@@ -24,13 +24,14 @@
         <div class="cell actions">Actions</div>
       </div> 
       @foreach( $games as $index => $game )
-        <div class="row entity {{ $index% 2 == 0 ? ' even' : 'odd' }}">
+        <div class="row  entity {{ $index% 2 == 0 ? ' even' : 'odd' }}">
           <div class="cell id">{{ $game->id }} </div>
           <div class="cell">{{ $game->created_at }}</div>
           <div class="cell date">{{ $game->user->name }}</div>
           <div class="cell image">{{ $game->type }}
           </div>
           <div class="cell actions">
+            <a class="btn btn-small btn-yellow" href="{{url('/admin/game/'.$game->id)}}">VIEW</a>
             <a class="btn btn-small btn-red" href="{{url('/admin/delete-game/'.$game->id)}}">DELETE</a>
           </div> 
       </div>
