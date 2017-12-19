@@ -328,6 +328,36 @@ section .game-content .result-choise.red label{
 section .game-content .result-choise.white label{
     color: white;
 }
+section .game-content .result-choise.center {
+    text-align: center;
+}
 section .game-content .margin-top {
     margin-top: 10px;
+}
+section .game-content .margin-top.hide {
+    display: none;
+}
+section .game-content .role-block {
+    width: 28px;
+    height: 28px;
+    float: left;
+    margin-right: 10px;
+}
+section .game-content .role-block.hide {
+    display: none;
+}
+section .game-content .role-block i {
+    color: white;
+    margin: 0 auto;
+    margin-top: 5px;
+    margin: 2px 0px 0px 3px;
+}
+section .game-content .role-block.red {
+    background: red;
+}
+section .game-content .role-block.black {
+    background: black;
+}
+#hide-roles.hide, #show-roles.hide {
+    display: none;
 }

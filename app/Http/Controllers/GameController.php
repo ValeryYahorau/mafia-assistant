@@ -6,6 +6,7 @@ use Log;
 use App\Game;
 use App\Player;
 use App\Gameplayer;
+use App\Property;
 use Redirect;
 use App\Http\Requests\GameRequest;
 use Illuminate\Http\Request;
@@ -188,8 +189,17 @@ class GameController extends Controller
             $gamePlayer->points = 0;
             $gamePlayer->result = "lose";
         }
+        $gamePlayer->game_result = $result;
         $gamePlayer->additional_points = $additional_points;
         $gamePlayer->save();
-    }
 
+        $player = Player::where('id', $gamePlayer->player_id)->first();
+        if (!$player->rating) {
+            $player->games_count = $player->games_count + 1;
+            if ($player->games_count >= Property::where('key', 'rating_games_min')->first()->value) {
+                $player->rating = true;
+            }
+            $player->save();
+        }
+    }
 }

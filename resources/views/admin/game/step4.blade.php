@@ -11,7 +11,7 @@
                     @if ($game->type == "simple") Фановая @endif
                     @if ($game->type == "rating") Рейтинговая @endif</strong>
             </h2>
-            <h1>Проставьте доп балы и выберите результат игры</h1>
+            <h1>Игра закончилась</h1>
         </div>
         <div class="entity-form">
 
@@ -25,11 +25,21 @@
                             @if ($gameplayer->position < 6)
                                 <div class="form-group {{ $index% 2 == 0 ? ' odd' : 'even' }}">
                                     <label>Игрок #{{ $gameplayer->position }}</label>
-                                    <div class="name">{{ $gameplayer->player->name_ru }}/{{ $gameplayer->player->name_en }}</div>
+                                    <div class="name">
+                                        @if ($gameplayer->role == "red")
+                                            <div class="role-block red"><i class="fa fa-smile-o" aria-hidden="true"></i></div>
+                                        @elseif($gameplayer->role == "sheriff")
+                                            <div class="role-block red sheriff"><i class="fa fa-star-o" aria-hidden="true"></i></div>
+                                        @elseif($gameplayer->role == "black")
+                                            <div class="role-block black"><i class="fa fa-frown-o" aria-hidden="true"></i></div>
+                                        @elseif($gameplayer->role == "don")
+                                            <div class="role-block black don"><i class="fa fa-circle-o" aria-hidden="true"></i></div>
+                                        @endif
+                                        {{ $gameplayer->player->name_ru }}/{{ $gameplayer->player->name_en }}
+                                    </div>
                                     <div class="">
-                                        <label>Доп балы</label>
-                                        <input class="form-control" step="0.01" name="additional_points_{{ $gameplayer->position }}" type="number"
-                                               value="0">
+                                        <label>Балы: {{ $gameplayer->points }}</label>
+                                        <label>Доп балы: {{ $gameplayer->additional_points }}</label>
                                     </div>
                                 </div>
                             @endif
@@ -40,11 +50,21 @@
                             @if ($gameplayer->position > 5)
                                 <div class="form-group {{ $index% 2 == 0 ? ' odd' : 'even' }}">
                                     <label>Игрок #{{ $gameplayer->position }}</label>
-                                    <div class="name">{{ $gameplayer->player->name_ru }}/{{ $gameplayer->player->name_en }}</div>
+                                    <div class="name">
+                                        @if ($gameplayer->role == "red")
+                                            <div class="role-block red"><i class="fa fa-smile-o" aria-hidden="true"></i></div>
+                                        @elseif($gameplayer->role == "sheriff")
+                                            <div class="role-block red sheriff"><i class="fa fa-star-o" aria-hidden="true"></i></div>
+                                        @elseif($gameplayer->role == "black")
+                                            <div class="role-block black"><i class="fa fa-frown-o" aria-hidden="true"></i></div>
+                                        @elseif($gameplayer->role == "don")
+                                            <div class="role-block black don"><i class="fa fa-circle-o" aria-hidden="true"></i></div>
+                                        @endif
+                                        {{ $gameplayer->player->name_ru }}/{{ $gameplayer->player->name_en }}
+                                    </div>
                                     <div class="">
-                                        <label>Доп балы</label>
-                                        <input class="form-control" step="0.01" name="additional_points_{{ $gameplayer->position }}" type="number"
-                                               value="0">
+                                        <label>Балы: {{ $gameplayer->points }}</label>
+                                        <label>Доп балы: {{ $gameplayer->additional_points }}</label>
                                     </div>
                                 </div>
                             @endif
@@ -53,27 +73,29 @@
                 </div>
 
                 <div class="form-group buttons">
-                    <div class="result-choise red">
-                        {{ Form::radio('result', 'red_win') }}
-                        <label>Победа красных</label>
-                    </div>
-                    <div class="result-choise">
-                        {{ Form::radio('result', 'black_win_3_3') }}
-                        <label>Победа черных 3 в 3</label>
-                    </div>
-                    <div class="result-choise">
-                        {{ Form::radio('result', 'black_win_2_2') }}
-                        <label>Победа черных 2 в 2</label>
-                    </div>
-                    <div class="result-choise">
-                        {{ Form::radio('result', 'black_win_1_1') }}
-                        <label>Победа черных 1 в 1</label>
-                    </div>
-                    <div class="result-choise white">
-                        {{ Form::radio('result', 'draw') }}
-                        <label>Ничья</label>
-                    </div>
-                    <button type="submit" class="btn btn-yellow margin-top">Закончить игру</button>
+                    @if ($game->result == "red_win")
+                        <div class="result-choise red center">
+                            <label>Победа красных</label>
+                        </div>
+                    @elseif($game->result == "black_win_3_3")
+                        <div class="result-choise center">
+                            <label>Победа черных 3 в 3</label>
+                        </div>
+                    @elseif($game->result == "black_win_2_2")
+                        <div class="result-choise center">
+                            <label>Победа черных 2 в 2</label>
+                        </div>
+                    @elseif($game->result == "black_win_1_1")
+                        <div class="result-choise center">
+                            <label>Победа черных 1 в 1</label>
+                        </div>
+                    @elseif($game->result == "draw center")
+                        <div class="result-choise white">
+                            <label>Ничья</label>
+                        </div>
+                    @endif
+
+                    <a href="{{url('/admin/games')}}" class="btn btn-yellow margin-top">Все игры</a>
                 </div>
             </form>
         </div>

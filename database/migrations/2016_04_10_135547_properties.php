@@ -18,7 +18,17 @@ class Properties extends Migration
             $table->string('value');                    
             $table->string('locale'); 
             $table->string('description'); 
-        });        
+        });
+
+        DB::table('properties')->insert(
+            array(
+                array(
+                    'key' => 'rating_games_min',
+                    'value' => '20',
+                    'description' => 'Min count of games to become rating player'
+                )
+            )
+        );
     }
 
     /**
