@@ -10,18 +10,15 @@ use Illuminate\Http\Request;
 use Redirect;
 use LaravelLocalization;
 use Carbon\Carbon;
-use App\Event;
-use App\Photoreport;
-use App\News;
 
 class MainController extends Controller
 {
 
     public function index()
     {
-        $eventsLine = Event::whereDate('date','>=', Carbon::yesterday())->where('line',true)->orderBy('date','asc')->get();  
-        return view('web.main')->withLine($eventsLine);
+        return view('web.main');
     }
+    /*
 
     public function about()
     {
@@ -72,5 +69,5 @@ class MainController extends Controller
     {
         $news = News::where('slug',$slug)->first();
         return view('web.singlenews')->withNews($news);
-    }      
+    }      */
 }

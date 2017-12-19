@@ -36,6 +36,7 @@ Route::group(['prefix' => LaravelLocalization::setLocale(),'middleware' => ['loc
 Route::group(['prefix' => LaravelLocalization::setLocale(),'middleware' => ['localize','web','localeSessionRedirect','localizationRedirect']], function() {
 	Route::get('/','MainController@index');
 	Route::get('/home','MainController@index');
+	/*
 	Route::get('/about','MainController@about');
 	Route::get('/clever','MainController@clever');	
 	Route::get('/contacts','MainController@contacts');
@@ -44,7 +45,7 @@ Route::group(['prefix' => LaravelLocalization::setLocale(),'middleware' => ['loc
 	Route::get('/events','MainController@events');
 	Route::get('/event/{slug}','MainController@event');
 	Route::get('/photoreports','MainController@photoreports');
-	Route::get('/photoreport/{slug}','MainController@singlePhotoreport');
+	Route::get('/photoreport/{slug}','MainController@singlePhotoreport');*/
 });
 /*
 Route::group(['middleware' => 'web'], function () {
