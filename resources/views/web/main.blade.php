@@ -1,70 +1,172 @@
 @extends('layouts.web')
 
 @section('content')
-<section class="home animatedParent animateOnce">
-    <div class="overlay_light"></div>
-    
-        @if ( $line->count() )
-            <div class="slider">
-              <ul class="rslides">
-                @foreach( $line as $index => $eventLine )
-                    <li><<img src="{{url('/')}}{{Config::get('noccms.img_path')}}{{$eventLine->img_path2}}"/></li>
-                @endforeach 
-              </ul> 
-            </div>             
-        @endif    <!--
-        <div class="slider">
-            <ul class="rslides">
-              <li><img src="{{ asset('web/img/1.jpg') }}" alt=""></li>
-              <li><img src="{{ asset('web/img/2.jpg') }}" alt=""></li>
-              <li><img src="{{ asset('web/img/3.jpg') }}" alt=""></li>
-            </ul>
-        </div>
--->
-        <div class="section-title">
-            <div class="cell">
-                <div class="wrapper ">
-                    <h1>Atom M</h1>
-                    <h2 class="">Атом M" на все 100 оправдывает свое название, предлагая белорусской публике зрелищные и качественные шоу .<br/>Концепция компании проста как атом: устраивать "большой взрыв" в мире развлечений!</h2>
+    <section class="home">
+
+        <div class="row">
+            <div class="col-2">
+                <div class="widget chart-widget">
+                    <div class="widget-header">Красные/Черные победы</div>
+                    <div class="widget-body">
+                        <div id='myChart'><a class="zc-ref" href="https://www.zingchart.com/">Powered by ZingChart</a></div>
+                    </div>
                 </div>
             </div>
         </div>
-        
-    </section>   
+    </section>
 @endsection
 
 @section('page-js')
-    <script type="text/javascript" src="{{ asset('web/js/plugins/responsiveslides/responsiveslides.min.js') }}"></script>
-    
-    <!--[if IE]>
-        <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
-    <script type="text/javascript">
-        $(document).ready(function() {
-            $(".rslides").responsiveSlides({
-              auto: true,             // Boolean: Animate automatically, true or false
-              speed: 500,            // Integer: Speed of the transition, in milliseconds
-              timeout: 4000,          // Integer: Time between slide transitions, in milliseconds
-              pager: false,           // Boolean: Show pager, true or false
-              nav: true,             // Boolean: Show navigation, true or false
-              random: false,          // Boolean: Randomize the order of the slides, true or false
-              pause: false,           // Boolean: Pause on hover, true or false
-              pauseControls: true,    // Boolean: Pause when hovering controls, true or false
-              prevText: "Previous",   // String: Text for the "previous" button
-              nextText: "Next",       // String: Text for the "next" button
-              maxwidth: "",           // Integer: Max-width of the slideshow, in pixels
-              navContainer: "",       // Selector: Where controls should be appended to, default is after the 'ul'
-              manualControls: "",     // Selector: Declare custom pager navigation
-              namespace: "rslides",   // String: Change the default namespace used
-              before: function(){},   // Function: Before callback
-              after: function(){}     // Function: After callback
-            });
-        });
-        $(window).load(function() {
-            setTimeout(function(){
-                $('body').addClass('loaded');
-                $('head').append('<link rel="stylesheet" type="text/css" href="{{ asset('web/css/animations.css') }}">');
-            }, 100);
+    <script type="text/javascript" src="{{ asset('web/plugins/zingchart/zingchart.js') }}"></script>
+    <script>
+        zingchart.MODULESDIR = "https://cdn.zingchart.com/modules/";
+        ZC.LICENSE = ["569d52cefae586f634c54f86dc99e6a9", "ee6b7db5b51705a13dc2339db3edaf6d"];
+        var myConfig = {
+            backgroundColor: '#FBFCFE',
+            type: "ring",
+            title: {
+                text: "Monthly Page Views",
+                fontFamily: 'Lato',
+                fontSize: 14,
+                // border: "1px solid black",
+                padding: "15",
+                fontColor: "#1E5D9E",
+            },
+            subtitle: {
+                text: "06/10/16 - 07/11/16",
+                fontFamily: 'Lato',
+                fontSize: 12,
+                fontColor: "#777",
+                padding: "5"
+            },
+            plot: {
+                slice: '50%',
+                borderWidth: 0,
+                backgroundColor: '#FBFCFE',
+                animation: {
+                    effect: 2,
+                    sequence: 3
+                },
+                valueBox: [{
+                    type: 'all',
+                    text: '%t',
+                    placement: 'out'
+                }, {
+                    type: 'all',
+                    text: '%npv%',
+                    placement: 'in'
+                }]
+            },
+            tooltip: {
+                fontSize: 16,
+                anchor: 'c',
+                x: '50%',
+                y: '50%',
+                sticky: true,
+                backgroundColor: 'none',
+                borderWidth: 0,
+                thousandsSeparator: ',',
+                text: '<span style="color:%color">Page Url: %t</span><br><span style="color:%color">Pageviews: %v</span>',
+                mediaRules: [{
+                    maxWidth: 500,
+                    y: '54%',
+                }]
+            },
+            plotarea: {
+                backgroundColor: 'transparent',
+                borderWidth: 0,
+                borderRadius: "0 0 0 10",
+                margin: "70 0 10 0"
+            },
+            legend: {
+                toggleAction: 'remove',
+                backgroundColor: '#FBFCFE',
+                borderWidth: 0,
+                adjustLayout: true,
+                align: 'center',
+                verticalAlign: 'bottom',
+                marker: {
+                    type: 'circle',
+                    cursor: 'pointer',
+                    borderWidth: 0,
+                    size: 5
+                },
+                item: {
+                    fontColor: "#777",
+                    cursor: 'pointer',
+                    offsetX: -6,
+                    fontSize: 12
+                },
+                mediaRules: [{
+                    maxWidth: 500,
+                    visible: false
+                }]
+            },
+            scaleR: {
+                refAngle: 270
+            },
+            series: [{
+                text: "Docs",
+                values: [106541],
+                lineColor: "#00BAF2",
+                backgroundColor: "#00BAF2",
+                lineWidth: 1,
+                marker: {
+                    backgroundColor: '#00BAF2'
+                }
+            }, {
+                text: "Gallery",
+                values: [56711],
+                lineColor: "#E80C60",
+                backgroundColor: "#E80C60",
+                lineWidth: 1,
+                marker: {
+                    backgroundColor: '#E80C60'
+                }
+            }, {
+                text: "Index",
+                values: [43781],
+                lineColor: "#9B26AF",
+                backgroundColor: "#9B26AF",
+                lineWidth: 1,
+                marker: {
+                    backgroundColor: '#9B26AF'
+                }
+            }]
+        };
+
+        zingchart.render({
+            id: 'myChart',
+            data: {
+                gui: {
+                    contextMenu: {
+                        button: {
+                            visible: true,
+                            lineColor: "#2D66A4",
+                            backgroundColor: "#2D66A4"
+                        },
+                        gear: {
+                            alpha: 1,
+                            backgroundColor: "#2D66A4"
+                        },
+                        position: "right",
+                        backgroundColor: "#306EAA",
+                        /*sets background for entire contextMenu*/
+                        docked: true,
+                        item: {
+                            backgroundColor: "#306EAA",
+                            borderColor: "#306EAA",
+                            borderWidth: 0,
+                            fontFamily: "Lato",
+                            color: "#fff"
+                        }
+
+                    },
+                },
+                graphset: [myConfig]
+            },
+            height: '499',
+            width: '99%'
         });
     </script>
 @endsection

@@ -16,38 +16,15 @@
     <div class="loader-section section-right"></div>
 </div>    --> 
 <!-- header -->	
-<header class="animatedParent animateOnce">
-	<div class="left-top">
-		<div class="left-top-background"></div>
-	</div>
-	<div class="left-top-logo animated fadeInLeftShort delay-500 minslow"><img src="{{ asset('web/img/logo-small.png') }}"></div>
+<header>
+	<div class="left-top-logo"><p>Mafia Assistant</p></div>
 	<nav id="menu" class="menu">
 		<button class="menu_handle"><span>Menu</span></button>
 		<div class="menu_inner cl-effect-11">
 			<ul>
-				<li class="animated fadeInDownShort delay-250 minslow"><a class="link" data-hover="@lang('web.home')" href="{{url('/home')}}">@lang('web.home')</a></li>
-				<li class="animated fadeInDownShort delay-500 minslow"><a class="link" data-hover="@lang('web.events')" href="{{url('/events')}}">@lang('web.events')</a></li>
-				<li class="animated fadeInDownShort delay-750 minslow"><a class="link" data-hover="@lang('web.photoreports')" href="{{url('/photoreports')}}">@lang('web.photoreports')</a></li>
-				<li class="animated fadeInDownShort delay-1000 minslow"><a class="link" data-hover="@lang('web.about')" href="{{url('/about')}}">@lang('web.about')</a></li>
-				<li class="animated fadeInDownShort delay-1250 minslow"><a class="link" data-hover="@lang('web.news')" href="{{url('/news')}}">@lang('web.news')</a></li>
-<!--		
-				@if ( LaravelLocalization::getCurrentLocale() == "ru") 
-					<li class="animated fadeInDownShort delay-1250 minslow"><a target="_blank" class="link" data-hover="Клевер" href="{{url('/clever')}}">Клевер</a></li>
-				@endif-->
-				<li class="animated fadeInDownShort delay-1250 minslow"><a class="link" data-hover="@lang('web.contacts')" href="{{url('/contacts')}}">@lang('web.contacts')</a></li>
+				<li><a class="link" href="{{url('/home')}}"><i class="fa fa-tachometer" aria-hidden="true"></i> Главная</a></li>
+				<li><a class="link" href="{{url('/events')}}"><i class="fa fa-users" aria-hidden="true"></i> Игроки</a></li>
 			</ul>
 		</div>
 	</nav>
-	<div class="right">
-		<div class="locale">
-			<div class="button button-light" id="ben">
-				<a href="{{LaravelLocalization::getLocalizedURL('en') }}" id="en">EN</a>
-				<div class="mask"></div>
-			</div>							
-			<div class="button button-light" id="bru" style="display: block;">
-				<a href="{{LaravelLocalization::getLocalizedURL('ru') }}" id="ru">RU</a>
-				<div class="mask"></div>
-			</div>		
-		</div>
-	</div>	
 </header> 
