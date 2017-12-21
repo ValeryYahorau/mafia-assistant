@@ -4,6 +4,53 @@
     <section class="home">
 
         <div class="row">
+            <div class="col-3">
+                <div class="widget chart-widget">
+                    <div class="widget-header">Общая статистика</div>
+                    <div class="widget-body padding-20">
+                        <div class="intro">
+                            <p>Всего игр: {{ $red_win_count + $black_win_count }}</p>
+                            <p><span class="red">Из них красных побед: {{ $red_win_count }}</span></p>
+                            <p><span class="black">Из них черных побед: {{ $black_win_count }}</span></p>
+                            <br>
+                            <p>Всего игроков: {{ $s_player_count + $r_player_count }}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-3">
+                <div class="widget chart-widget">
+                    <div class="widget-header">Рейтинговая статистика</div>
+                    <div class="widget-body padding-20">
+                        <div class="intro">
+                            <p>Всего рейтинговых игр: {{ $r_red_win_count + $r_black_win_count }}</p>
+                            <p><span class="red">Из них красных побед: {{ $r_red_win_count }}</span></p>
+                            <p><span class="black">Из них черных побед: {{ $r_black_win_count }}</span></p>
+                            <br>
+                            <p>Всего рейтинговых игроков: {{ $r_player_count }}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-3">
+                <div class="widget chart-widget">
+                    <div class="widget-header">Фановая статистика</div>
+                    <div class="widget-body padding-20">
+                        <div class="intro">
+                            <p>Всего фановых игр: {{ $s_red_win_count + $s_black_win_count }}</p>
+                            <p><span class="red">Из них красных побед: {{ $s_red_win_count }}</span></p>
+                            <p><span class="black">Из них черных побед: {{ $s_black_win_count }}</span></p>
+                            <br>
+                            <p>Всего фановых игроков: {{ $s_player_count }}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
             <div class="col-2">
                 <div class="widget chart-widget">
                     <div class="widget-header">Красные/Черные победы</div>

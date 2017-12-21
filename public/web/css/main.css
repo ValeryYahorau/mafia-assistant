@@ -40,10 +40,15 @@ section .row .col-2 {
     max-width: 50%;
     padding: 15px;
 }
+section .row .col-3 {
+    -ms-flex: 0 0 33.33333%;
+    flex: 0 0 33.33333%;
+    max-width: 33.33333%;
+    padding: 15px;
+}
 .widget {
     background: #fff;
     box-shadow: 0px 4px 70px -18px #707070;
-    margin-bottom: 1.875rem;
     padding: 0;
 }
 .widget .widget-header {
@@ -108,10 +113,10 @@ section .line .cell.info-small {
 }
 section .intro {
     font-family: 'Roboto', sans-serif;
-    padding: 15px;
+
 }
 section .intro p{
-    margin: 3px 0px;
+    margin: 3px 15px;
     color: #34495e;
 }
 section .intro span.red {

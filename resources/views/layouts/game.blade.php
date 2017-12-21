@@ -1,4 +1,4 @@
-@include('admin.include.head')
+@include('admin.include.head2')
 
 @yield('page-css')
 

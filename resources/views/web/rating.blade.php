@@ -13,11 +13,12 @@
                             <div class="intro">
                                 @if ($hard_type == "red")
                                     <p>Тяжелые игры: <span class="red">красные</span></p>
+                                    <p>Коэффициент сложности тяжелых игр: {{ $k }}</p>
                                 @endif
                                 @if ($hard_type == "black")
-                                        Тяжелые игры: <span class="black">черные</span>
-                                @endif
+                                    <p>Тяжелые игры: <span class="black">черные</span></p>
                                     <p>Коэффициент сложности тяжелых игр: {{ $k }}</p>
+                                @endif
                             </div>
                             <div class="line info">
                                 <div class="cell place">Место</div>

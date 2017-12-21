@@ -263,24 +263,6 @@ section .bord.t, section .bord.b {
 	header {
 		position: initial;
 	}
-	header .left-top {
-
-	}
-	.left-top .left-top-background{
-		right: -198px;
-		left: auto;       
-	    -o-transform:rotate(315deg);
-	    -moz-transform:rotate(315deg);
-	    -webkit-transform: rotate(315deg); 	
-	    -ms-transform:rotate(315deg);
-	}
-	header .left-top-logo {
-		right: 0;left: auto;
-	}	
-	header .left-top-logo img {
-		width: 45px;
-  		margin: 10px;		
-	}
 	.menu_handle {
 		display: block;
 		background: none;
@@ -297,7 +279,7 @@ section .bord.t, section .bord.b {
 	.menu_handle::before,
 	.menu_handle::after,
 	.menu_handle span {
-		background: #bc0007;
+		background: #4ae387;
 	}
 	.menu_handle::before,
 	.menu_handle::after {

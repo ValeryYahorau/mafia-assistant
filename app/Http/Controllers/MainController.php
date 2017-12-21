@@ -20,14 +20,31 @@ class MainController extends Controller
 
     public function index()
     {
+        /* CHARTS */
         $red_win_count = Game::where('result', "red_win")->count();
         $black_win_1_1_count = Game::where('result', "black_win_1_1")->count();
         $black_win_2_2_count = Game::where('result', "black_win_2_2")->count();
         $black_win_3_3_count = Game::where('result', "black_win_3_3")->count();
         $black_win_count = $black_win_1_1_count + $black_win_2_2_count + $black_win_3_3_count;
 
+        /* INFO */
+        $r_red_win_count = Game::where('result', "red_win")->where('type', "rating")->count();
+        $r_black_win_count = Game::whereIn('result', array("black_win_1_1", "black_win_2_2", "black_win_3_3"))->where('type', "rating")->count();
+
+        $s_red_win_count = Game::where('result', "red_win")->where('type', "simple")->count();
+        $s_black_win_count = Game::whereIn('result', array("black_win_1_1", "black_win_2_2", "black_win_3_3"))->where('type', "simple")->count();
+
+        $s_player_count = Player::where('rating', false)->count();
+        $r_player_count = Player::where('rating', true)->count();
+
+
         return view('web.main')->withBlack_win_1_1_count($black_win_1_1_count)->withBlack_win_2_2_count($black_win_2_2_count)->withBlack_win_3_3_count($black_win_3_3_count)
-            ->withBlack_win_count($black_win_count)->withRed_win_count($red_win_count);
+            ->withBlack_win_count($black_win_count)->withRed_win_count($red_win_count)
+            ->withR_red_win_count($r_red_win_count)->withR_black_win_count($r_black_win_count)
+            ->withS_red_win_count($s_red_win_count)->withS_black_win_count($s_black_win_count)
+            ->withS_player_count($s_player_count)->withR_player_count($r_player_count);
+
+
     }
 
 
@@ -125,28 +142,6 @@ class MainController extends Controller
             }
             return $result;
         });
-
-        foreach ($ratingArray as $key => $player) {
-            Log::info("%1 ".$player->player_id);
-        }
         return view('web.rating')->withStats($ratingArray)->withHard_type($hard_type)->withK($k);
     }
-    /*
-public function clever()
-{
-    return view('web.clever');
-}
-public function contacts()
-{
-    return view('web.contacts');
-}
-
-public function events()
-{
-    $eventsLine = Event::whereDate('date','>=', Carbon::today())->where('line',true)->orderBy('date','asc')->get();
-    $events = Event::whereDate('date','>=', Carbon::today())->orderBy('date','asc')->get();
-    $pastevents = Event::whereDate('date','<', Carbon::today())->orderBy('date','desc')->paginate(1000);
-    return view('web.events')->withLine($eventsLine)->withEvents($events)->withPastevents($pastevents);
-}
- */
 }
