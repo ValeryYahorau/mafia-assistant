@@ -18,9 +18,12 @@ class GamePlayers extends Migration
             $table->enum('role', ['red', 'sheriff', 'black', 'don', 'none'])->default('none');
             $table->enum('result', ['win', 'lose', 'draw', 'none'])->default('none');
             $table->enum('game_result', ['none', 'red_win', 'black_win_3_3', 'black_win_2_2', 'black_win_1_1', 'draw'])->default('none');
+            $table->enum('game_type', ['simple', 'rating'])->default('simple');
+
             $table->integer('points')->default(0);
             $table->integer('additional_points')->default(0);
             $table->integer('position')->default(0);
+            $table->timestamps();
         });
     }
 

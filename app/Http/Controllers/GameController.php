@@ -83,16 +83,16 @@ class GameController extends Controller
             $game = Game::where('id', $game_id)->first();
 
             $result = $request->get('result');
-            $this->updateGamePlayer($result, $request->get('additional_points_1'), $game->id, 1);
-            $this->updateGamePlayer($result, $request->get('additional_points_2'), $game->id, 2);
-            $this->updateGamePlayer($result, $request->get('additional_points_3'), $game->id, 3);
-            $this->updateGamePlayer($result, $request->get('additional_points_4'), $game->id, 4);
-            $this->updateGamePlayer($result, $request->get('additional_points_5'), $game->id, 5);
-            $this->updateGamePlayer($result, $request->get('additional_points_6'), $game->id, 6);
-            $this->updateGamePlayer($result, $request->get('additional_points_7'), $game->id, 7);
-            $this->updateGamePlayer($result, $request->get('additional_points_8'), $game->id, 8);
-            $this->updateGamePlayer($result, $request->get('additional_points_9'), $game->id, 9);
-            $this->updateGamePlayer($result, $request->get('additional_points_10'), $game->id, 10);
+            $this->updateGamePlayer($result, $game->type, $request->get('additional_points_1'), $game->id, 1);
+            $this->updateGamePlayer($result, $game->type, $request->get('additional_points_2'), $game->id, 2);
+            $this->updateGamePlayer($result, $game->type, $request->get('additional_points_3'), $game->id, 3);
+            $this->updateGamePlayer($result, $game->type, $request->get('additional_points_4'), $game->id, 4);
+            $this->updateGamePlayer($result, $game->type, $request->get('additional_points_5'), $game->id, 5);
+            $this->updateGamePlayer($result, $game->type, $request->get('additional_points_6'), $game->id, 6);
+            $this->updateGamePlayer($result, $game->type, $request->get('additional_points_7'), $game->id, 7);
+            $this->updateGamePlayer($result, $game->type, $request->get('additional_points_8'), $game->id, 8);
+            $this->updateGamePlayer($result, $game->type, $request->get('additional_points_9'), $game->id, 9);
+            $this->updateGamePlayer($result, $game->type, $request->get('additional_points_10'), $game->id, 10);
 
             $game->status = "ended";
             $game->result = $result;
@@ -172,14 +172,15 @@ class GameController extends Controller
         $gamePlayer->save();
     }
 
-    private function updateGamePlayer($result, $additional_points, $game_id, $position)
+    private function updateGamePlayer($result, $type, $additional_points, $game_id, $position)
     {
         $gamePlayer = Gameplayer::where('game_id', $game_id)->where('position', $position)->first();
         if ($result == "red_win" && ($gamePlayer->role == "red" || $gamePlayer->role == "sheriff")) {
             $gamePlayer->points = 2;
             $gamePlayer->result = "win";
 
-        } else if ($result == "black_win" && ($gamePlayer->role == "black" || $gamePlayer->role == "don")) {
+        } else if (($result == "black_win_1_1" || $result == "black_win_2_2" || $result == "black_win_3_3")
+            && ($gamePlayer->role == "black" || $gamePlayer->role == "don")) {
             $gamePlayer->points = 2;
             $gamePlayer->result = "win";
         } else if ($result == "draw") {
@@ -190,6 +191,7 @@ class GameController extends Controller
             $gamePlayer->result = "lose";
         }
         $gamePlayer->game_result = $result;
+        $gamePlayer->game_type = $type;
         $gamePlayer->additional_points = $additional_points;
         $gamePlayer->save();
 

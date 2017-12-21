@@ -5,7 +5,6 @@ use File;
 class Gameplayer extends Model {
 
 	protected $guarded = [];
-    public $timestamps = false;
 
     public function delete()
     {
