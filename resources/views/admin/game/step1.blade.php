@@ -178,4 +178,13 @@
     <script type="text/javascript" src="{{ asset('noc_admin/plugins/chosen/chosen.jquery.js') }}"></script>
     <script type="text/javascript" src="{{ asset('noc_admin/plugins/chosen/docsupport/prism.js') }}"></script>
     <script type="text/javascript" src="{{ asset('noc_admin/plugins/chosen/docsupport/init.js') }}"></script>
+    <script>
+        if ($('.chosen-container').length > 0) {
+            $('.chosen-container').on('touchstart', function(e){
+                e.stopPropagation(); e.preventDefault();
+                // Trigger the mousedown event.
+                $(this).trigger('mousedown');
+            });
+        }
+    </script>
 @endsection
