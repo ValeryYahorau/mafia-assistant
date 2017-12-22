@@ -59,7 +59,7 @@
                                         @elseif($gameplayer->role == "sheriff")
                                             <div class="role-block red sheriff hide"><i class="fa fa-star-o" aria-hidden="true"></i></div>
                                         @elseif($gameplayer->role == "black")
-                                            <div class="role-block black "><i class="fa fa-frown-o" aria-hidden="true"></i></div>
+                                            <div class="role-block black hide"><i class="fa fa-frown-o" aria-hidden="true"></i></div>
                                         @elseif($gameplayer->role == "don")
                                             <div class="role-block black don hide"><i class="fa fa-circle-o" aria-hidden="true"></i></div>
                                         @endif

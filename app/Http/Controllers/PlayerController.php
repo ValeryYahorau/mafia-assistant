@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Log;
 use Image;
 use File;
-use App\PLayer;
+use App\Player;
 use Redirect;
 use App\Http\Requests\PlayerRequest;
 use Illuminate\Http\Request;

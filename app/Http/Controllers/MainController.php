@@ -50,8 +50,9 @@ class MainController extends Controller
 
     public function rating()
     {
-        $red_win_count = Game::where('result', "red_win")->count();
-        $black_win_count = Game::whereIn('result', array("black_win_1_1", "black_win_2_2", "black_win_3_3"))->count();
+        /*TODO*/
+        $red_win_count = Game::where('result', "red_win")->where('type', "rating")->count();
+        $black_win_count = Game::whereIn('result', array("black_win_1_1", "black_win_2_2", "black_win_3_3"))->where('type', "rating")->count();
         $total_games = $red_win_count + $black_win_count;
         $hard_type = "";
         $k = 1;
@@ -142,6 +143,23 @@ class MainController extends Controller
             }
             return $result;
         });
+
+        $ids = Gameplayer::where('game_type', "rating")->groupBy('player_id')->pluck('player_id');
+        $players0 = Player::where('rating', true)->whereNotIn('id', $ids)->get();
+
+        foreach ($players0 as $key => $p0) {
+            $ps = new PlayerStat();
+            $ps->player_id = $p0->id;
+            $ps->player = $p0;
+            $ps->additional_points = 0;
+            $ps->total_game_count = 0;
+            $ps->rating = 0;
+            $ps->win_count = 0;
+            $ps->lose_count = 0;
+            array_push($ratingArray, $ps);
+        }
+
+
         return view('web.rating')->withStats($ratingArray)->withHard_type($hard_type)->withK($k);
     }
 }

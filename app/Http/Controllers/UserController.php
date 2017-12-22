@@ -8,7 +8,6 @@ use File;
 use App\User;
 use Redirect;
 use App\Http\Requests;
-use App\Http\Requests\EventRequest;
 use Illuminate\Http\Request;
 
 class UserController extends Controller
