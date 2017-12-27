@@ -18,6 +18,7 @@
         <div class="cell">Name</div>
         <div class="cell date">Real Name</div>
         <div class="cell image">Type</div>
+        <div class="cell image">Rating</div>
         <div class="cell actions">Actions</div>
       </div> 
       @foreach( $players as $index => $player )
@@ -26,6 +27,7 @@
           <div class="cell">{{ $player->name_ru }}<br/>{{ $player->name_en }}</div>
           <div class="cell date">{{ $player->real_name }}</div>
           <div class="cell image">{{ $player->type }}</div>
+            <div class="cell image">{{ $player->rating == 1 ? "yes" : "no" }}</div>
           <div class="cell actions">
             <a class="btn btn-small btn-yellow" href="{{url('/admin/edit-player/'.$player->id)}}">EDIT</a>
             <a class="btn btn-small btn-red" href="{{url('/admin/delete-player/'.$player->id)}}">DELETE</a>

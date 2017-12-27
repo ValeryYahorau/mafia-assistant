@@ -22,6 +22,7 @@
                             </div>
                             <div class="line info">
                                 <div class="cell place">Место</div>
+                                <div class="cell place">Статус</div>
                                 <div class="cell name">Ник</div>
                                 <div class="cell real-name">ФИО</div>
                                 <div class="cell info">Инфо</div>
@@ -30,6 +31,23 @@
                             @foreach( $stats as $index => $player )
                                 <div class="line entity {{ $index% 2 == 0 ? ' even' : 'odd' }}">
                                     <div class="cell place">{{ $index+1 }} </div>
+                                    <div class="cell status">
+                                        @if ($player->player->type == "simple")
+                                            <img src="{{ asset('web/img/simple.png') }}"/><span>Дерево</span>
+                                        @endif
+                                        @if ($player->player->type == "bronze")
+                                            <img src="{{ asset('web/img/bronze.png') }}"/><span>Бронза</span>
+                                        @endif
+                                        @if ($player->player->type == "silver")
+                                            <img src="{{ asset('web/img/silver.png') }}"/><span>Серебро</span>
+                                        @endif
+                                        @if ($player->player->type == "gold")
+                                            <img src="{{ asset('web/img/gold.png') }}"/><span>Золото</span>
+                                        @endif
+                                        @if ($player->player->type == "platinum")
+                                            <img src="{{ asset('web/img/platinum.png') }}"/><span>Платина</span>
+                                        @endif
+                                    </div>
                                     <div class="cell name">{{ $player->player->name_ru }}<br>{{ $player->player->name_en }}</div>
                                     <div class="cell real=name">{{ $player->player->real_name }}</div>
                                     <div class="cell info info-small">

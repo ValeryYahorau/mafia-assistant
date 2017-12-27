@@ -161,7 +161,51 @@ class GameController extends Controller
         }
     }
 
+    public function createProtocol(Request $request)
+    {
+        if ($request->user()->is_admin()) {
+            $players = Player::orderBy('name_ru', 'asc')->get();
+            return view('admin.game.step1protocol')->withPlayers($players);
+        }
+    }
 
+    public function saveProtocol(Request $request)
+    {
+        if ($request->user()->is_admin()) {
+            $game = new Game();
+            $game->user_id = $request->user()->id;
+            $arrayIds = array($request->get('player1'), $request->get('player2'), $request->get('player3'), $request->get('player4'),
+                $request->get('player5'), $request->get('player6'), $request->get('player7'), $request->get('player8'),
+                $request->get('player9'), $request->get('player10'));
+
+            $count = Player::whereIn('id', $arrayIds)->where('rating', false)->count();
+            if ($count == 0) {
+                $game->type = "rating";
+            }
+            $result = $request->get('result');
+            $game->status = "ended";
+            $game->result = $result;
+            $game->save();
+
+            $this->saveGamePlayerProtocol($game->id, $game->type, $result, $request->get('player1'), $request->get('additional_points_1'), $request->get('role_1'), 1);
+            $this->saveGamePlayerProtocol($game->id, $game->type, $result, $request->get('player2'), $request->get('additional_points_2'), $request->get('role_2'), 2);
+            $this->saveGamePlayerProtocol($game->id, $game->type, $result, $request->get('player3'), $request->get('additional_points_3'), $request->get('role_3'), 3);
+            $this->saveGamePlayerProtocol($game->id, $game->type, $result, $request->get('player4'), $request->get('additional_points_4'), $request->get('role_4'), 4);
+            $this->saveGamePlayerProtocol($game->id, $game->type, $result, $request->get('player5'), $request->get('additional_points_5'), $request->get('role_5'), 5);
+            $this->saveGamePlayerProtocol($game->id, $game->type, $result, $request->get('player6'), $request->get('additional_points_6'), $request->get('role_6'), 6);
+            $this->saveGamePlayerProtocol($game->id, $game->type, $result, $request->get('player7'), $request->get('additional_points_7'), $request->get('role_7'), 7);
+            $this->saveGamePlayerProtocol($game->id, $game->type, $result, $request->get('player8'), $request->get('additional_points_8'), $request->get('role_8'), 8);
+            $this->saveGamePlayerProtocol($game->id, $game->type, $result, $request->get('player9'), $request->get('additional_points_9'), $request->get('role_9'), 9);
+            $this->saveGamePlayerProtocol($game->id, $game->type, $result, $request->get('player10'), $request->get('additional_points_10'), $request->get('role_10'), 10);
+
+            $data['message'] = 'Result was saved';
+            return redirect('/admin/games')->with($data);
+        }
+    }
+
+    /****************************/
+    /* UTILS */
+    /****************************/
     private function saveGamePlayer($role, $player_id, $game_id, $position)
     {
         $gamePlayer = new Gameplayer();
@@ -175,6 +219,44 @@ class GameController extends Controller
     private function updateGamePlayer($result, $type, $additional_points, $game_id, $position)
     {
         $gamePlayer = Gameplayer::where('game_id', $game_id)->where('position', $position)->first();
+        if ($result == "red_win" && ($gamePlayer->role == "red" || $gamePlayer->role == "sheriff")) {
+            $gamePlayer->points = 2;
+            $gamePlayer->result = "win";
+
+        } else if (($result == "black_win_1_1" || $result == "black_win_2_2" || $result == "black_win_3_3")
+            && ($gamePlayer->role == "black" || $gamePlayer->role == "don")) {
+            $gamePlayer->points = 2;
+            $gamePlayer->result = "win";
+        } else if ($result == "draw") {
+            $gamePlayer->points = 0;
+            $gamePlayer->result = "draw";
+        } else {
+            $gamePlayer->points = 0;
+            $gamePlayer->result = "lose";
+        }
+        $gamePlayer->game_result = $result;
+        $gamePlayer->game_type = $type;
+        $gamePlayer->additional_points = $additional_points;
+        $gamePlayer->save();
+
+        $player = Player::where('id', $gamePlayer->player_id)->first();
+        if (!$player->rating) {
+            $player->games_count = $player->games_count + 1;
+            if ($player->games_count >= Property::where('key', 'rating_games_min')->first()->value) {
+                $player->rating = true;
+            }
+            $player->save();
+        }
+    }
+
+    private function saveGamePlayerProtocol($game_id, $type, $result, $player_id, $additional_points, $role, $position)
+    {
+        $gamePlayer = new Gameplayer();
+        $gamePlayer->role = $role;
+        $gamePlayer->player_id = $player_id;
+        $gamePlayer->game_id = $game_id;
+        $gamePlayer->position = $position;
+
         if ($result == "red_win" && ($gamePlayer->role == "red" || $gamePlayer->role == "sheriff")) {
             $gamePlayer->points = 2;
             $gamePlayer->result = "win";

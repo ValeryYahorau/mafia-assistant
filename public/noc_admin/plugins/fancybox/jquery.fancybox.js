@@ -34,7 +34,8 @@
     // ========================
 
     var defaults = {
-
+        hideOnOverlayClick: true,
+        hideOnContentClick: true,
         // Enable infinite gallery navigation
         loop : false,
 
@@ -131,7 +132,7 @@
         //   "fade"
         //   "zoom-in-out"
         //
-        animationEffect : "zoom",
+        animationEffect : false,
 
         // Duration in ms for open/close animation
         animationDuration : 500,
@@ -151,7 +152,7 @@
         //   "zoom-in-out'
         //   "rotate'
         //
-        transitionEffect : "fade",
+        transitionEffect : false,
 
         // Duration in ms for transition animation
         transitionDuration : 366,
@@ -350,10 +351,10 @@
             margin   : 0,
 
             clickContent : function( current, event ) {
-                return current.type === 'image' ? 'toggleControls' : false;
+                return current.type === 'image' ? 'close' : false;
             },
             clickSlide : function( current, event ) {
-                return current.type === 'image' ? 'toggleControls' : 'close';
+                return current.type === 'image' ? 'close' : 'close';
             },
             dblclickContent : function( current, event ) {
                 return current.type === 'image' ? 'zoom' : false;

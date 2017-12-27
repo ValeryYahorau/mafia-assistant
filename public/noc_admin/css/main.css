@@ -103,7 +103,7 @@ section .admin-content .head .l p {
 }
 section .admin-content .head .r {
     display: table-cell;
-    width: 300px;
+    width: 400px;
     vertical-align: middle;
     padding-right: 20px;
     text-align: right;
@@ -310,17 +310,19 @@ section .game-content .entity-form .form-group.buttons {
      margin-top: 10px;
 }
 section .game-content .result-choise {
-    width: 200px;
     text-align: left;
     margin: 0 auto;
     padding: 3px 0px;
+    float: left;
 }
 section .game-content .result-choise label{
     display: initial;
-    font-size: 20px;
-    font-weight: 500;
+    font-size: 24px;
+    font-weight: 300;
     color: #000;
     font-family: 'Alegreya Sans SC', sans-serif;
+    text-shadow: -1px 0 #fff, 0 1px #fff, 1px 0 #fff, 0 -1px #fff;
+    padding-right: 20px;
 }
 section .game-content .result-choise.red label{
     color: red;
@@ -331,6 +333,11 @@ section .game-content .result-choise.white label{
 section .game-content .result-choise.center {
     text-align: center;
 }
+section .game-content .buttons .result-choise {
+    float: none;
+    width: 300px;
+}
+
 section .game-content .margin-top {
     margin-top: 10px;
 }
@@ -360,4 +367,35 @@ section .game-content .role-block.black {
 }
 #hide-roles.hide, #show-roles.hide {
     display: none;
+}
+
+
+@media only screen and (max-width: 1024px) {
+    section .game-content .head h2 {
+        font-size: 16px;
+    }
+    section .game-content .head h1 {
+        margin: 0px 0px;
+        font-size: 20px;
+    }
+    section .game-content .entity-form .form-group a.show-role {
+        float: none;
+        margin-top: 0px;
+        padding: 5px 5px;
+    }
+    section .game-content .entity-form label {
+        font-size: 12px;
+    }
+    section .game-content .entity-form .form-group .name {
+        font-size: 18px;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        white-space: nowrap;
+    }
+    section .game-content .role-block i {
+        font-size: 25px!important;
+    }
+    section .game-content .role-block {
+        margin-right: 5px;
+    }
 }

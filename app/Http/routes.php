@@ -18,12 +18,13 @@ Route::group(['prefix' => LaravelLocalization::setLocale(), 'middleware' => ['lo
     Route::get('/admin/edit-player/{id}', 'PlayerController@edit');
     Route::post('/admin/update-player', 'PlayerController@update');
 
-
     Route::get('/admin/games', 'GameController@all');
     Route::get('/admin/create-game', 'GameController@create');
     Route::post('/admin/save-game-step1', 'GameController@saveStep1');
     Route::post('/admin/save-game-step2', 'GameController@saveStep2');
     Route::post('/admin/save-game-step3', 'GameController@saveStep3');
+    Route::get('/admin/create-protocol', 'GameController@createProtocol');
+    Route::post('/admin/save-protocol', 'GameController@saveProtocol');
 
     Route::get('/admin/delete-game/{id}', 'GameController@delete');
     Route::get('/admin/game/{id}', 'GameController@view');

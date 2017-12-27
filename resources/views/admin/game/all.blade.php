@@ -7,7 +7,8 @@
         <h1>Игры</h1>
       </div>
       <div class="r">
-          <a href="{{url('/admin/create-game')}}" class="btn btn-small btn-green">CREATE</a>
+          <a href="{{url('/admin/create-protocol')}}" class="btn btn-small btn-yellow">ВНЕСТИ РЕЙТИНГОВЫЙ ПРОТОКОЛ</a>
+          <a href="{{url('/admin/create-game')}}" class="btn btn-small btn-green">СОЗДАТЬ</a>
       </div>
     </div>
     @if ( !$games->count() )
@@ -20,6 +21,7 @@
         <div class="cell">Date</div>
         <div class="cell date">Owner</div>
         <div class="cell image">Type</div>
+        <div class="cell image">Status</div>
         <div class="cell actions">Actions</div>
       </div> 
       @foreach( $games as $index => $game )
@@ -27,8 +29,8 @@
           <div class="cell id">{{ $game->id }} </div>
           <div class="cell">{{ $game->created_at }}</div>
           <div class="cell date">{{ $game->user->name }}</div>
-          <div class="cell image">{{ $game->type }}
-          </div>
+          <div class="cell image">{{ $game->type }}</div>
+          <div class="cell image">{{ $game->status }}</div>
           <div class="cell actions">
             <a class="btn btn-small btn-yellow" href="{{url('/admin/game/'.$game->id)}}">VIEW</a>
             <a class="btn btn-small btn-red" href="{{url('/admin/delete-game/'.$game->id)}}">DELETE</a>

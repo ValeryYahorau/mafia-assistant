@@ -105,6 +105,12 @@ section .line .cell.id {
 section .line .cell.place {
     width: 80px;
 }
+section .line .cell.status {
+    width: 100px;
+}
+section .line .cell.status img{
+    width: 60px;
+}
 section .line .cell.rating {
     width: 120px;
 }
