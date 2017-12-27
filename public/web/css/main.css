@@ -109,7 +109,15 @@ section .line .cell.status {
     width: 100px;
 }
 section .line .cell.status img{
-    width: 60px;
+    width: 40px;
+    margin: 0 auto;
+    display: block;
+}
+section .line .cell.status span{
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+    font-size: 12px;
+    display: block;
 }
 section .line .cell.rating {
     width: 120px;
