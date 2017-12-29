@@ -14,6 +14,6 @@
 
     <link rel="stylesheet" type="text/css" href="{{ asset('noc_admin/css/font-awesome.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('noc_admin/css/preload.css') }}">  
-    <link rel="stylesheet" type="text/css" href="{{ asset('noc_admin/css/navigation.css') }}"/>
-    <link rel="stylesheet" type="text/css" href="{{ asset('noc_admin/css/common.css') }}"/>
-    <link rel="stylesheet" type="text/css" href="{{ asset('noc_admin/css/main.css') }}"/>
+    <link rel="stylesheet" type="text/css" href="{{ asset('noc_admin/css/navigation.css?v=1') }}"/>
+    <link rel="stylesheet" type="text/css" href="{{ asset('noc_admin/css/common.css?v=1') }}"/>
+    <link rel="stylesheet" type="text/css" href="{{ asset('noc_admin/css/main.css?v=1') }}"/>

@@ -5,9 +5,9 @@
 		<div class="menu_inner cl-effect-11">
 			<ul>
 				<li><a class="link" href="{{url('/home')}}"><i class="fa fa-tachometer" aria-hidden="true"></i> Главная</a></li>
-				<li><a class="link" href="{{url('/rating')}}"><i class="fa fa-bar-chart" aria-hidden="true"></i> Рейтинг</a></li>
+				<li><a class="link" href="{{url('/rating/rating')}}"><i class="fa fa-bar-chart" aria-hidden="true"></i> Рейтинг</a></li>
 
-				<li><a class="link" href="{{url('/players')}}"><i class="fa fa-users" aria-hidden="true"></i> Игроки</a></li>
+				<li><a class="link" href="{{url('/players/all')}}"><i class="fa fa-users" aria-hidden="true"></i> Игроки</a></li>
 			</ul>
 		</div>
 	</nav>

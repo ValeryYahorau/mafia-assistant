@@ -2,24 +2,19 @@
 
 @section('content')
     <section class="home">
-
         <div class="row">
             <div class="col-1">
                 <div class="widget chart-widget">
-                    <div class="widget-header">Глобальный рейтинг</div>
+                    <div class="widget-header">Рейтинг</div>
                     <div class="widget-body padding-20">
+                        <div class="intro">
+                            <div class="switch-bar">
+                                <a href="{{url('/rating/rating')}}" class="{{ $type=="rating" ? ' active' : '' }}">Основной рейтинг</a>
+                                <a href="{{url('/rating/simple')}}" class="{{ $type=="simple" ? ' active' : '' }}">Фановый рейтинг</a>
+                            </div>
+                        </div>
                         @if ( count($stats)==0 )
                         @else
-                            <div class="intro">
-                                @if ($hard_type == "red")
-                                    <p>Тяжелые игры: <span class="red">красные</span></p>
-                                    <p>Коэффициент сложности тяжелых игр: {{ $k }}</p>
-                                @endif
-                                @if ($hard_type == "black")
-                                    <p>Тяжелые игры: <span class="black">черные</span></p>
-                                    <p>Коэффициент сложности тяжелых игр: {{ $k }}</p>
-                                @endif
-                            </div>
                             <div class="line info">
                                 <div class="cell place">Место</div>
                                 <div class="cell place">Статус</div>

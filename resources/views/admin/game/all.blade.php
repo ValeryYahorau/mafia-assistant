@@ -7,7 +7,7 @@
         <h1>Игры</h1>
       </div>
       <div class="r">
-          <a href="{{url('/admin/create-protocol')}}" class="btn btn-small btn-yellow">ВНЕСТИ РЕЙТИНГОВЫЙ ПРОТОКОЛ</a>
+          <a href="{{url('/admin/create-protocol')}}" class="btn btn-small btn-yellow">ВНЕСТИ ПРОТОКОЛ</a>
           <a href="{{url('/admin/create-game')}}" class="btn btn-small btn-green">СОЗДАТЬ</a>
       </div>
     </div>

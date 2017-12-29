@@ -68,11 +68,6 @@ section .row .col-3 {
     padding: 20px;
 }
 
-
-
-
-
-
 section .line {
     display: table;
     width: 100%;
@@ -127,7 +122,6 @@ section .line .cell.info-small {
 }
 section .intro {
     font-family: 'Roboto', sans-serif;
-
 }
 section .intro p{
     margin: 3px 15px;
@@ -138,6 +132,28 @@ section .intro span.red {
 }
 section .intro span.black {
     color: #5f5554;
+}
+section .intro .switch-bar {
+    border-bottom: 2px solid #4ae387;
+    margin: 20px 0px;
+    display: block;
+    height: 36px;
+    width: 391px;
+}
+section .intro .switch-bar-2 {
+    width: 537px;
+}
+section .intro .switch-bar a {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+    text-decoration: none;
+    padding: 13px 20px;
+    color: #5f5554;
+}
+section .intro .switch-bar a.active {
+    color: #fff;
+    background-color: #4ae387;
 }
 
 

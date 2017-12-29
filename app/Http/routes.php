@@ -35,7 +35,7 @@ Route::group(['prefix' => LaravelLocalization::setLocale(), 'middleware' => ['lo
 Route::group(['prefix' => LaravelLocalization::setLocale(), 'middleware' => ['localize', 'web', 'localeSessionRedirect', 'localizationRedirect']], function () {
     Route::get('/', 'MainController@index');
     Route::get('/home', 'MainController@index');
-    Route::get('/rating', 'MainController@rating');
-    /*
-    Route::get('/photoreport/{slug}','MainController@singlePhotoreport');*/
+    Route::get('/rating/{type}', 'MainController@rating');
+    Route::get('/players/{type}', 'MainController@players');
+    Route::get('/player/{id}', 'MainController@player');
 });
