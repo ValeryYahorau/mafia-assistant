@@ -20,6 +20,7 @@
                                 <div class="cell place">Статус</div>
                                 <div class="cell name">Ник</div>
                                 <div class="cell real-name">ФИО</div>
+                                <div class="cell actions">Подробнее</div>
                             </div>
                             @foreach( $players as $index => $player )
                                 <div class="line entity {{ $index% 2 == 0 ? ' even' : 'odd' }}">
@@ -40,8 +41,13 @@
                                             <img src="{{ asset('web/img/platinum.png') }}"/><span>Платина</span>
                                         @endif
                                     </div>
-                                    <div class="cell name">{{ $player->name_ru }}<br>{{ $player->name_en }}</div>
-                                    <div class="cell real=name">{{ $player->real_name }}</div>
+                                    <div class="cell name">
+                                        <a href="{{url('/player/'.$player->id)}}">{{ $player->name_ru }}<br>{{ $player->name_en }}</a>
+                                    </div>
+                                    <div class="cell real-name">{{ $player->real_name }}</div>
+                                    <div class="cell actions">
+                                        <a class="circle-button" href="{{url('/player/'.$player->id)}}">Подробнее</a>
+                                    </div>
                                 </div>
                             @endforeach
                         @endif

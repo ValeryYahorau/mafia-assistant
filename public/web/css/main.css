@@ -120,6 +120,13 @@ section .line .cell.rating {
 section .line .cell.info-small {
     font-size: 12px;
 }
+section .line .cell.actions {
+    width: 200px;
+}
+section .line .cell a {
+    color: black;
+    text-decoration: none;
+}
 section .intro {
     font-family: 'Roboto', sans-serif;
 }
@@ -155,8 +162,37 @@ section .intro .switch-bar a.active {
     color: #fff;
     background-color: #4ae387;
 }
-
-
+a.circle-button {
+    background-color: #4ae387;
+    color: #fff;
+    box-shadow: 0 4px 9.6px 0.4px rgba(74, 227, 135, 0.5);
+    border: none;
+    font-family: inherit;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    cursor: pointer;
+    display: inline-block;
+    font-weight: 400;
+    line-height: 1.25;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    border: 0px solid transparent;
+    padding: 15px 40px;
+    border-radius: 1.875rem;
+    transition: all 0.2s ease-in-out;
+    color: #fff!important;
+    text-decoration: none;
+    font-size: 12px;
+}
+a.circle-button:hover {
+    background-color: #76eaa4 !important;
+    color: #fff!important;
+}
 
 
 

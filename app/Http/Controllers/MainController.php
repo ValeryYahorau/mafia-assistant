@@ -60,9 +60,9 @@ class MainController extends Controller
         }
 
         if ($type == 'rating') {
-            $gamePlayers = Gameplayer::where('game_type', 'rating')->whereNotIn('player_id', [23, 24])->get();
+            $gamePlayers = Gameplayer::where('game_type', 'rating')->where('result','<>','none')->whereNotIn('player_id', [23, 24])->get();
         } else {
-            $gamePlayers = Gameplayer::where('game_type', 'simple')->whereNotIn('player_id', [23, 24])->get();
+            $gamePlayers = Gameplayer::where('game_type', 'simple')->where('result','<>','none')->whereNotIn('player_id', [23, 24])->get();
         }
         $gamePlayersMap = array();
         foreach ($gamePlayers as $key => $gp) {
@@ -151,6 +151,15 @@ class MainController extends Controller
         }
         return view('web.players')->withPlayers($players)->withType($type);
     }
+
+    public function player(Request $request, $id)
+    {
+        $player = Player::where('id', $id)->first();
+        return view('web.player')->withPlayer($player);
+    }
+
+
+
 
 
     public function ratingOld($type)
