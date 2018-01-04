@@ -7,21 +7,30 @@
                 <div class="widget widget-user-info">
                     <div class="widget-header">Игрок</div>
                     <div class="widget-body padding-20 ">
-                        <div class="info-line"><span class="pre">Ник: </span> {{$player->name_ru}} / {{$player->name_en}}</div>
-                        <div class="info-line"><span class="pre">ФИО: </span> {{$player->real_name}}</div>
-                        <div class="info-line"><span class="pre">Количетсво {{ $player->rating ? ' рейтинговых' : 'фановых' }}
-                                игр: </span> {{$stat->total_game_count}}</div>
-                        <div class="info-line"><span class="pre">Win rate</span> {{ number_format($stat->win_rate, 3) }}%</div>
-                        <div class="info-line"><span class="pre red">Win rate за красных</span> {{ number_format($stat->total_red_win_rate, 3) }}%</div>
-                        <div class="info-line"><span class="pre black">Win rate за черных</span> {{ number_format($stat->total_black_win_rate, 3) }}%</div>
-
+                        <div class="content">
+                            <div class="l">
+                                <div class="info-line"><span class="pre">Ник: </span> {{$player->name_ru}} / {{$player->name_en}}</div>
+                                <div class="info-line"><span class="pre">ФИО: </span> {{$player->real_name}}</div>
+                                <div class="info-line"><span class="pre">Количетсво {{ $player->rating ? ' рейтинговых' : 'фановых' }}
+                                        игр: </span> {{$stat->total_game_count}}</div>
+                            </div>
+                            <div class="r">
+                                <div class="info-line"><span class="pre">Win rate</span> {{ number_format($stat->win_rate, 3) }}%</div>
+                                <div class="info-line"><span
+                                            class="pre red">Win rate за красных</span> {{ number_format($stat->total_red_win_rate, 3) }}%
+                                </div>
+                                <div class="info-line"><span
+                                            class="pre black">Win rate за черных</span> {{ number_format($stat->total_black_win_rate, 3) }}%
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="row lvl2">
                     <div class="col-2">
                         <div class="widget widget-status">
                             <div class="widget-header">Статус</div>
-                            <div class="widget-body padding-20">
+                            <div class="widget-body padding-10">
                                 <div>
                                     @if ($player->type == "simple")
                                         <img src="{{ asset('web/img/simple.png') }}"/><span>Дерево</span>
@@ -46,7 +55,7 @@
                     <div class="col-2">
                         <div class="widget widget-type">
                             <div class="widget-header">Тип</div>
-                            <div class="widget-body padding-20 height-146">
+                            <div class="widget-body padding-10 height-126">
                                 @if ($player->rating)
                                     <p class="black margin-top-30">Рейтинговый</p>
                                 @else
@@ -78,7 +87,7 @@
                     <div class="col-2">
                         <div class="widget widget-role red">
                             <div class="widget-header red">Мирный</div>
-                            <div class="widget-body padding-20">
+                            <div class="widget-body padding-10">
                                 <p>{{$stat->red_game_count}} игр</p>
                                 <span></span>
                                 <p>Win rate: {{$stat->red_win_rate}}%</p>
@@ -89,7 +98,7 @@
                     <div class="col-2">
                         <div class="widget widget-role red">
                             <div class="widget-header red">Шериф</div>
-                            <div class="widget-body padding-20">
+                            <div class="widget-body padding-10">
                                 <p>{{$stat->sheriff_game_count}} игр</p>
                                 <span></span>
                                 <p>Win rate: {{$stat->sheriff_win_rate}}%</p>
@@ -104,7 +113,7 @@
                     <div class="col-2">
                         <div class="widget widget-role black">
                             <div class="widget-header black">Мафия</div>
-                            <div class="widget-body padding-20">
+                            <div class="widget-body padding-10">
                                 <p>{{$stat->black_game_count}} игр</p>
                                 <span></span>
                                 <p>Win rate: {{$stat->black_win_rate}}%</p>
@@ -115,7 +124,7 @@
                     <div class="col-2">
                         <div class="widget widget-role black">
                             <div class="widget-header black">Дон</div>
-                            <div class="widget-body padding-20">
+                            <div class="widget-body padding-10">
                                 <p>{{$stat->don_game_count}} игр</p>
                                 <span></span>
                                 <p>Win rate: {{$stat->don_win_rate}}%</p>
@@ -178,7 +187,7 @@
         zingchart.render({
             id: 'radar',
             data: radarConfig,
-            height: '445',
+            height: '319',
             width: '99%'
         });
     </script>

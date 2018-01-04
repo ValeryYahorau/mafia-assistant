@@ -13,8 +13,8 @@
 
     <link rel="stylesheet" type="text/css" href="{{ asset('web/css/normalize.css') }}"> 
     <link rel="stylesheet" type="text/css" href="{{ asset('web/css/preload.css') }}"> 
-    <link rel="stylesheet" type="text/css" href="{{ asset('web/css/navigation.css?v=4') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('web/css/main.css?v=4') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('web/css/navigation.css?v=7') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('web/css/main.css?v=7') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('web/css/font-awesome.css') }}">
 
     <title>Mafia assistant</title>
