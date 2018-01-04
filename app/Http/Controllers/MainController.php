@@ -60,9 +60,9 @@ class MainController extends Controller
         }
 
         if ($type == 'rating') {
-            $gamePlayers = Gameplayer::where('game_type', 'rating')->where('result','<>','none')->whereNotIn('player_id', [23, 24])->get();
+            $gamePlayers = Gameplayer::where('game_type', 'rating')->where('result', '<>', 'none')->whereNotIn('player_id', [23, 24])->get();
         } else {
-            $gamePlayers = Gameplayer::where('game_type', 'simple')->where('result','<>','none')->whereNotIn('player_id', [23, 24])->get();
+            $gamePlayers = Gameplayer::where('game_type', 'simple')->where('result', '<>', 'none')->whereNotIn('player_id', [23, 24])->get();
         }
         $gamePlayersMap = array();
         foreach ($gamePlayers as $key => $gp) {
@@ -117,26 +117,6 @@ class MainController extends Controller
             }
             return $result;
         });
-
-        if ($type == 'rating') {
-            $ids = Gameplayer::where('game_type', "rating")->groupBy('player_id')->pluck('player_id');
-            $players0 = Player::where('rating', true)->whereNotIn('id', $ids)->whereNotIn('id', [23, 24])->get();
-        } else {
-            $ids = Gameplayer::where('game_type', "simple")->groupBy('player_id')->pluck('player_id');
-            $players0 = Player::whereNotIn('id', $ids)->whereNotIn('id', [23, 24])->get();
-        }
-
-        foreach ($players0 as $key => $p0) {
-            $ps = new PlayerStat();
-            $ps->player_id = $p0->id;
-            $ps->player = $p0;
-            $ps->additional_points = 0;
-            $ps->total_game_count = 0;
-            $ps->rating = 0;
-            $ps->win_count = 0;
-            $ps->lose_count = 0;
-            array_push($ratingArray, $ps);
-        }
         return view('web.rating')->withStats($ratingArray)->withType($type);
     }
 
@@ -155,11 +135,65 @@ class MainController extends Controller
     public function player(Request $request, $id)
     {
         $player = Player::where('id', $id)->first();
-        return view('web.player')->withPlayer($player);
+        if ($player->rating) {
+            $gamePlayers = Gameplayer::where('game_type', 'rating')->where('result', '<>', 'none')->where('player_id', $id)->get();
+        } else {
+            $gamePlayers = Gameplayer::where('game_type', 'simple')->where('result', '<>', 'none')->where('player_id', $id)->get();
+        }
+        $playerStat = new PlayerStat();
+        foreach ($gamePlayers as $key => $gp) {
+            $playerStat->total_game_count = $playerStat->total_game_count + 1;
+            if ($gp->result == "win") {
+                $playerStat->win_count = $playerStat->win_count + 1;
+                if ($gp->role == "red") {
+                    $playerStat->red_game_count = $playerStat->red_game_count + 1;
+                    $playerStat->red_win_count = $playerStat->red_win_count + 1;
+                } elseif ($gp->role == "sheriff") {
+                    $playerStat->sheriff_game_count = $playerStat->sheriff_game_count + 1;
+                    $playerStat->sheriff_win_count = $playerStat->sheriff_win_count + 1;
+                } elseif ($gp->role == "black") {
+                    $playerStat->black_game_count = $playerStat->black_game_count + 1;
+                    $playerStat->black_win_count = $playerStat->black_win_count + 1;
+                } elseif ($gp->role == "don") {
+                    $playerStat->don_game_count = $playerStat->don_game_count + 1;
+                    $playerStat->don_win_count = $playerStat->don_win_count + 1;
+                }
+            } elseif ($gp->result == "lose") {
+                $playerStat->lose_count = $playerStat->lose_count + 1;
+                if ($gp->role == "red") {
+                    $playerStat->red_game_count = $playerStat->red_game_count + 1;
+                } elseif ($gp->role == "sheriff") {
+                    $playerStat->sheriff_game_count = $playerStat->sheriff_game_count + 1;
+                } elseif ($gp->role == "black") {
+                    $playerStat->black_game_count = $playerStat->black_game_count + 1;
+                } elseif ($gp->role == "don") {
+                    $playerStat->don_game_count = $playerStat->don_game_count + 1;
+                }
+            }
+        }
+        if ($playerStat->sheriff_game_count != 0) {
+            $playerStat->sheriff_win_rate = $playerStat->sheriff_win_count / $playerStat->sheriff_game_count * 100;
+        }
+        if ($playerStat->red_game_count != 0) {
+            $playerStat->red_win_rate = $playerStat->red_win_count / $playerStat->red_game_count * 100;
+        }
+        if ($playerStat->don_game_count != 0) {
+            $playerStat->don_win_rate = $playerStat->don_win_count / $playerStat->don_game_count * 100;
+        }
+        if ($playerStat->black_game_count != 0) {
+            $playerStat->black_win_rate = $playerStat->black_win_count / $playerStat->black_game_count * 100;
+        }
+        if ($playerStat->total_game_count != 0) {
+            $playerStat->win_rate = $playerStat->win_count / $playerStat->total_game_count * 100;
+        }
+        if ($playerStat->black_game_count != 0 || $playerStat->don_game_count != 0) {
+            $playerStat->total_black_win_rate = ($playerStat->don_win_count + $playerStat->black_win_count) / ($playerStat->black_game_count + $playerStat->don_game_count) * 100;
+        }
+        if ($playerStat->sheriff_game_count != 0 || $playerStat->red_game_count != 0) {
+            $playerStat->total_red_win_rate = ($playerStat->sheriff_win_count + $playerStat->red_win_count) / ($playerStat->sheriff_game_count + $playerStat->red_game_count) * 100;
+        }
+        return view('web.player')->withPlayer($player)->withStat($playerStat);
     }
-
-
-
 
 
     public function ratingOld($type)
